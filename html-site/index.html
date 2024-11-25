@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #333333;
+      color: white;
+      padding: 10px 20px;
+    }
+    .top-bar img {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      height: 100px;
+      z-index: 1;
+    }
+    .buttons {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+    }
+    .buttons button {
+      background-color: #9c1616;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .buttons button:hover {
+      background-color: #777;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .back-to-top {
+      width: 100%;
+      text-align: center;
+      background-color: #555;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .back-to-top:hover {
+      background-color: #777;
+    }
+    .footer-columns {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+    .footer-column {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+    }
+    .footer-column button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 90%;
+      max-width: 250px;
+    }
+    .footer-column button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <img src="../picture/logo.png" alt="Logo">
+  <div class="buttons">
+    <a href="index.html"><button>Home</button></a>
+    <a href="events.html"><button>Events</button></a>
+    <a href="profile.html"><button>Profile</button></a>
+  </div>
+</div>
+
+<footer>
+  <div class="back-to-top" onclick="scrollToTop()">Back to Top</div>
+  <div class="footer-columns">
+    <!-- Left Column -->
+    <div class="footer-column">
+      <button>Kumpel Team</button>
+      <button>Career</button>
+      <button>Legal Notice</button>
+    </div>
+    <!-- Right Column -->
+    <div class="footer-column">
+      <button>KumpelCode</button>
+      <button>General Terms and Conditions</button>
+      <button>Report</button>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
