@@ -77,3 +77,63 @@ body {
 .footer-column button:hover {
     text-decoration: underline;
 }
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Initially hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: right 0.3s ease;
+    z-index: 1000; /* Ensures it's above other content */
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .sidebar-toggle {
+    position: fixed;
+    top: 10%;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001; /* Button above sidebar */
+    transition: background-color 0.3s;
+}
+
+.sidebar .sidebar-toggle:hover {
+    background-color: #555;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* To avoid overlap with button */
+    padding-left: 20px;
+}
+
+.sidebar-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-content li {
+    margin: 10px 0;
+}
+
+.sidebar-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar-content a:hover {
+    text-decoration: underline;
+}
