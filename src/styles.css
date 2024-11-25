@@ -13,10 +13,20 @@ body {
     background-color: #333;
     color: white;
     padding: 10px 20px;
+    position: relative;
 }
 
 .top-bar img {
-    height: 50px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    height: 100px;
+    z-index: 1;
+}
+
+.top-bar .buttons {
+    margin-left: auto;
+    display: flex;
 }
 
 .top-bar .buttons a button {
