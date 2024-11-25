@@ -1,8 +1,9 @@
 // Function to dynamically load an HTML file into a specific element
 function loadComponent(selector, file) {
-    fetch(`placeholder/${file}`)
+    const filePath = `../placeholder/${file}`;
+    fetch(filePath)
         .then(response => {
-            if (!response.ok) throw new Error(`Error loading ${file}: ${response.statusText}`);
+            if (!response.ok) throw new Error(`Error loading ${filePath}: ${response.statusText}`);
             return response.text();
         })
         .then(html => {
