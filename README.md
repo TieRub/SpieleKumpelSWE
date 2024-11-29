@@ -1,18 +1,18 @@
 File Structure atm:
 /src
-|-- /picture
-|   |-- logo.png
 |-- /html
 |   |-- /placeholder
-|       |-- footer.html
-|       |-- header.html
-|       |-- sidebar.html
+|       |-- footer-nav.html
 |   |-- /primary
 |       |-- index.html
-|       |-- events.html
-|       |-- profile.html
+|       |-- meinBereich.html
+|       |-- profil.html
 |   |-- /secondary
-|       |--
+|       |-- logIn.html
+|       |-- register.html
+|       |-- create.html
+|       |-- kumpels.html
+|       |-- impressum.html
 |-- script.js
 |-- styles.css
-
+|-- /picture
