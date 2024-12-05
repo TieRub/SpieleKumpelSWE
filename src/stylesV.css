@@ -1,0 +1,39 @@
+body{
+    background-color: #3baea0;
+    color: black;
+    text-align: center;
+}
+
+.bestehendeKumpels{
+    background-color: #1f6f78;
+    padding: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 10px;
+
+
+}
+
+.kumpelAnfragen{
+    background-color: #118a7e;
+    padding: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 10px;
+
+}
+
+.keineKumpels{
+    background-color: #93e4c1;
+    padding: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 10px;
+
+}
