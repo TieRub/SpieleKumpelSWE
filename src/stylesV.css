@@ -37,3 +37,15 @@ body{
     margin: 10px;
 
 }
+
+.floating {
+    float: right;
+    position: sticky;
+    z-index: 1;
+    background-color: #118a7e;
+    color: white;
+    border: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
