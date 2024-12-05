@@ -1,0 +1,81 @@
+/*Footer*/
+.footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-buttons a {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.footer-buttons .button-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.footer-buttons .button-icon:hover {
+    transform: scale(1.1);
+}
+
+/*Footer-Burger*/
+.burger-menu {
+    position: relative;
+}
+
+#burger-menu-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#burger-menu-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 10px;
+    width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 2000;
+}
+
+#burger-menu-content a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 10px;
+}
+
+#burger-menu-content a:hover {
+    background-color: #444;
+}
