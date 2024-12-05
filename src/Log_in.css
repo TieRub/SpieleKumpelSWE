@@ -1,0 +1,68 @@
+body {
+    background-color: #93e4c1;
+    color: #1f6f78;
+}
+
+.Einleitung{
+    text-align: center;
+}
+
+.buttons {
+    display: block;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.buttons button {
+    background-color: #118a7e;
+    color: white;
+    border: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.over {
+    margin-top: 100px;
+    margin-left: 150px;
+}
+
+
+.buttons button:hover {
+    background-color: #1f6f78;
+}
+
+.Daten_eingeben {
+    background-color: #118a7e;
+    color: white;
+    width: 170px;
+    height: 120px;
+    padding: 50px;
+
+    margin-top: 20px;
+    margin-left: 80px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 25%;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 50%;
+
+
+}
+
+
+.first-color {
+    background: #93e4c1;
+}
+
+.second-color {
+    background: #3baea0;
+}
+
+.third-color {
+    background: #118a7e;
+}
+
+.fourth-color {
+    background: #1f6f78;
+}
