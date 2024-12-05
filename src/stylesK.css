@@ -106,6 +106,54 @@ body {
     margin: 0;
 }
 
+.fabs {
+        /* light button and button hover */
+    --_light-bg: pink;
+    --_light-bg-hover: pink;
+
+    /* dark button and button hover */
+    --_dark-bg: pink;
+    --_dark-bg-hover: pink;
+
+    /* adaptive variables set to light by default */
+    --_bg: var(--_light-bg);
+
+    /* static icon colors set to the adaptive foreground variable */
+    --_light-fg: white;
+    --_dark-fg: black;
+    --_fg: var(--_light-fg);
+    --_viewport-margin: 2.5vmin;
+
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    place-items: center;
+    gap: var(--_viewport-margin);
+
+    inset-block: auto var(--_viewport-margin);
+    inset-inline: auto var(--_viewport-margin);
+
+    /* use the adaptive properties on some styles */
+    background: var(--_bg);
+    color: var(--_fg);
+
+    &:is(:active, :hover, :focus-visible) {
+        --_bg: var(--_light-bg-hover);
+
+        @media (prefers-color-scheme: dark) {
+            --_bg: var(--_dark-bg-hover);
+        }
+    }
+
+    /* if users prefers dark, set adaptive props to dark */
+    @media (prefers-color-scheme: dark) {
+        --_bg: var(--_dark-bg);
+        --_fg: var(--_dark-fg);
+    }
+}
+
+
 #iyoc {
      min-height: 100px;
      display: flex;
@@ -303,3 +351,35 @@ body {
      padding: 0px 0px 0px 0px;
      margin: 20px;
  }
+
+#iwalb {
+    padding: 10px;
+    font-family: Comic Sans MS, cursive, sans-serif;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+
+#ihwh2 {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+#ivm86 {
+    min-height: 100px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 0px 0px;
+    padding: 20px;
+    border: 3px solid #1f6f78;
+    max-width: 1000px;
+}
