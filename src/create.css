@@ -6,10 +6,12 @@ body {
 }
 
 
+
+
 .Daten_eingeben {
     display: inline-table;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 20px;
     padding: 20px;
     color: white;
     text-align: left;

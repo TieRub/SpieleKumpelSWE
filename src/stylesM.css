@@ -45,7 +45,7 @@ body {
 @media (max-width: 480px) {
     #ioy1 {
         height: 700px;
-        width: 320px;
+        width: auto;
         overflow: hidden scroll;
         background-color: #93e4c1;
         border: 0px none;

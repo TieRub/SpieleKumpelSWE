@@ -1,10 +1,10 @@
-body{
+body {
     background-color: #3baea0;
     color: black;
     text-align: center;
 }
 
-.bestehendeKumpels{
+.bestehendeKumpels {
     background-color: #1f6f78;
     padding: 10px;
     border-top-left-radius: 10%;
@@ -16,7 +16,7 @@ body{
 
 }
 
-.kumpelAnfragen{
+.kumpelAnfragen {
     background-color: #118a7e;
     padding: 10px;
     border-top-left-radius: 10%;
@@ -27,7 +27,7 @@ body{
 
 }
 
-.keineKumpels{
+.keineKumpels {
     background-color: #93e4c1;
     padding: 10px;
     border-top-left-radius: 10%;
