@@ -1,18 +1,14 @@
-File Structure atm:
+File Structure:
 /src
 |-- /html
-|   |-- /placeholder
-|       |-- footer-nav.html
-|   |-- /primary
+|   |-- /assets
+|   |-- /navbar
+|       |-- navbar.html
+|       |-- script.navbar.js
+|       |-- styles-navbar.css
+|   |-- /pages
 |       |-- index.html
-|       |-- meinBereich.html
-|       |-- profil.html
-|   |-- /secondary
-|       |-- logIn.html
-|       |-- register.html
-|       |-- create.html
-|       |-- kumpels.html
-|       |-- impressum.html
-|-- script.js
-|-- styles.css
-|-- /picture
+|       |-- feed.html
+|       |-- profile.html
+|       |-- script.pages.js
+|       |-- styles-pages.css
