@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging</title>
+    <link rel="stylesheet" href="../navbar/styles-navbar.css">
+    <link rel="stylesheet" href="styles-pages.css">
+    <script src="script-pages.js" defer></script>
+</head>
+<body>
+
+<!-- Login -->
+    <div id="login-container">
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="E-Mail Adresse" required>
+            <input type="password" id="login-password" placeholder="Passwort" required>
+            <button id="login-btn">Login</button>
+            <button id="create-account-btn">Account erstellen</button>
+        </div>
+
+        <!-- Account Erstellen -->
+        <div id="account-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-modal">&times;</span>
+                <h2>Account Erstellen</h2>
+                <input type="email" id="create-email" placeholder="E-Mail Adresse" required>
+                <input type="text" id="create-username" placeholder="Benutzername" required>
+                <input type="password" id="create-password" placeholder="Passwort" required>
+                <button id="submit-create">Account erstellen</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-pages.js" defer></script>
+
+    <!-- navbar -->
+    <div id="navbar"></div>
+    <script src="../navbar/script-navbar.js"></script>
+</body>
+</html>
