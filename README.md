@@ -1,5 +1,6 @@
 File Structure:
 /src
+|-- /database
 |-- /html
 |   |-- /assets
 |   |-- /navbar
