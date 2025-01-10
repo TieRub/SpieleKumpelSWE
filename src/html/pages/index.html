@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Trending</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/styles-pages.css') }}">
+
+
 </head>
 <body>
-    <!-- events -->
-    <div id="events-container"></div>
-    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
 
-    <!-- navbar -->
+    {% extends 'base.html' %}
+
+    {% block title %}Trending{% endblock %}
 
     {% block content %}
-        <div id="navbar"></div>
+        <div id="events-container"></div>
     {% endblock %}
 
-    <script src="{{ url_for('static', filename='navbar/script-navbar.js') }}"></script>
 
 </body>
 
