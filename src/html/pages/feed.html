@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Feed</title>
-    <link rel="stylesheet" href="../navbar/styles-navbar.css">
-    <link rel="stylesheet" href="styles-pages.css">
-    <script src="script-pages.js" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/styles-pages.css') }}">
+    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
 </head>
 <body>
 
     <!-- navbar -->
     <div id="navbar"></div>
-    <script src="../navbar/script-navbar.js"></script>
+    <script src="{{ url_for('static', filename='navbar/script-navbar.js') }}"></script>
 </body>
 </html>

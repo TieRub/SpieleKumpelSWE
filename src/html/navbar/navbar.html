@@ -1,23 +1,23 @@
 <div id="navbar" class="navbar">
     <div class="navbar-buttons">
-        <a href="../pages/index.html">
-            <img src="../assets/trending.png" alt="trending" class="button-icon">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='assets/trending.png') }}" alt="trending" class="button-icon">
         </a>
-        <a href="../pages/feed.html">
-            <img src="../assets/feed.png" alt="feed" class="button-icon">
+        <a href="{{ url_for('feed') }}">
+            <img src="{{ url_for('static', filename='assets/feed.png') }}" alt="feed" class="button-icon">
         </a>
-        <a href="../pages/profile.html">
-            <img src="../assets/profile.png" alt="profile" class="button-icon">
+        <a href="{{ url_for('profile') }}">
+            <img src="{{ url_for('static', filename='assets/profile.png') }}" alt="profile" class="button-icon">
         </a>
     </div>
     <div class="navbar-menu">
         <button id="navbar-menu-button" aria-label="Toggle Menu">&#9776;</button>
         <div id="navbar-menu-content" class="navbar-menu-content">
-            <a href="../pages/logging.html">Log In</a>
-            <a href="../pages/logging.html">Register</a>
-            <a href="../pages/">Create</a>
-            <a href="../pages/">Kumpels</a>
-            <a href="../pages/">Impressum</a>
+            <a href="{{ url_for('login') }}">Log In</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('create') }}">Create</a>
+            <a href="{{ url_for('kumpels') }}">Kumpels</a>
+            <a href="{{ url_for('impressum') }}">Impressum</a>
         </div>
     </div>
 </div>

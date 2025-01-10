@@ -13,3 +13,4 @@ File Structure:
 |       |-- profile.html
 |       |-- script.pages.js
 |       |-- styles-pages.css
+|--     app.py
