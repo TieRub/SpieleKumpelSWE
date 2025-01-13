@@ -4,7 +4,6 @@ CREATE TABLE Events
     creator_id      INTEGER NOT NULL,
     name            STRING  NOT NULL,
     FOREIGN KEY (creator_id) REFERENCES users (id),
-    event_picture   TEXT DEFAULT '/html/assets/default-profile.png',
     max_mitglieder  INTEGER NOT NULL,
     privat          BOOLEAN,
     description     STRING,
@@ -16,7 +15,7 @@ CREATE TABLE Events
 );
 
 
-INSERT INTO Events (creator_id, name, max_mitglieder, privat, description, datum, event_picture)
-VALUES (2, 'SUPER KRASSES Event', 4, 1, 'YOLO', NULL, NULL),
-       (4, 'S-Tier Event', 4, 1, 'auf Lock', 2055 - 01 - 08, NULL);
+INSERT INTO Events (creator_id, name, max_mitglieder, privat, description, datum)
+VALUES (2, 'SUPER KRASSES Event', 4, 1, 'YOLO', NULL),
+       (4, 'S-Tier Event', 4, 1, 'auf Lock', 2055 - 01 - 08);
 

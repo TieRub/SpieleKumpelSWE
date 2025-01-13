@@ -4,42 +4,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user
 
-from src.kumpelSuche import User
+from src import database
 
 app = Flask(__name__)
-
-# Configurations
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event.db'
-
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize extensions
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    friends_from = db.relationship('Friends', foreign_keys=[Friends.friend_from_id])
-    friends_to = db.relationship('Friends', foreign_keys=[Friends.friend_to_id])
-    friend_requests_sent = db.relationship('FriendRequest', foreign_keys=[FriendRequest.friend_from_id])
-    friend_requests_received = db.relationship('FriendRequest', foreign_keys=[FriendRequest.friend_to_id])
-
-
-
-class Friends(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    friend_from_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    friend_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-class FriendRequest(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    friend_from_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    friend_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
 @app.route('/kumpels')
