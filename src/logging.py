@@ -24,9 +24,10 @@ class User(db.Model):
     password = db.Column(db.String(200), nullable=False)
 
 # Datenbank erstellen (nur einmal ausführen)
-@app.before_first_request
+@app.before_request
 def create_tables():
-    db.create_all()
+    with app.app_context():
+        db.create_all()
 
 # Route: Benutzerkonto erstellen
 @app.route('/register', methods=['POST'])

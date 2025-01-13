@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kumpelSuche</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesV.css') }}">
+    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+</head>
+<body>
+<h2>Kumpels Suchen</h2>
+
+<form action="/kumpelSuche" method="POST">
+    <label>
+        <input type="text" name="username" placeholder="Benutzername eingeben">
+    </label>
+    <button type="submit">Suchen</button>
+</form>
+
+<!-- Display search result or messages -->
+
+    <h3>Suchergebnis:</h3>
+    <table>
+        <tr>
+            <th>Benutzername</th>
+            <th>Bild</th>
+        </tr>
+        {% if user %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>
+                <img src="{{ url_for('static', filename='images/' + user.username + '.png') }}" width="50px">
+            </td>
+        </tr>
+    </table>
+
+{% elif message %}
+    <p>{{ message }}</p>
+{% elif error %}
+    <p>{{ error }}</p>
+{% endif %}
+
+<div id="footer-placeholder"></div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

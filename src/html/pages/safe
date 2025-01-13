@@ -1,0 +1,65 @@
+from django.shortcuts import render
+from flask import Flask, request, jsonify, session
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_login import UserMixin, login_user, LoginManager, login_required
+
+from src.kumpelSuche import User
+
+app = Flask(__name__)
+
+# Configurations
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = 'supersecretkey'
+
+# Initialize extensions
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+login_manager = LoginManager(app)
+
+
+# Friendship model
+class Friends(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    friend_from_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    friend_to_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+class FriendRequest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    friend_from_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+
+
+
+
+
+
+# Friend request handling
+@app.route('/send_friend_request/<int:user_id>', methods=['POST'])
+@login_required
+def send_friend_request(user_id):
+    from_user = User.query.get(session['user_id'])
+    to_user = User.query.get(user_id)
+    if not to_user:
+        return jsonify({"error": "User not found"})
+
+    new_request = Friends(friend_from_id=from_user.id, friend_to_id=to_user.id)
+    db.session.add(new_request)
+    db.session.commit()
+    return jsonify({"message": "Friend request sent!"})
+
+
+
+
+def kumpel_verwaltung(request):
+    friends = User.objects.all()
+    requests = FriendRequest.objects.all()
+    no_friends = []
+    return render(request, 'index.html', {'friends': friends, 'requests': requests, 'no_friends': no_friends})
+
+
+if __name__ == "__main__":
+    from app import db
+    db.create_all()
+    app.run(debug=True)
