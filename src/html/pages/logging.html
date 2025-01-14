@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='pages/styles-pages.css') }}">
     <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+    <script src="{{ url_for('static', filename='navbar/script-navbar.js') }}"></script>
 </head>
 <body>
 
@@ -14,11 +15,12 @@
     <div id="login-container">
         <div id="login-form">
             <h2>Login</h2>
-            <input type="email" id="login-email" placeholder="E-Mail Adresse" required>
+            <input type="text" id="login-username" placeholder="Benutzername" required>
             <input type="password" id="login-password" placeholder="Passwort" required>
             <button id="login-btn">Login</button>
             <button id="create-account-btn">Account erstellen</button>
         </div>
+    </div>
 
         <!-- Account Erstellen -->
         <div id="account-modal" class="modal">
@@ -35,6 +37,5 @@
 
     <!-- navbar -->
     <div id="navbar"></div>
-    <script src="{{ url_for('static', filename='navbar/script-navbar.js') }}"></script>
 </body>
 </html>

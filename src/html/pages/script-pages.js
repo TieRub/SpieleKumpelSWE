@@ -18,24 +18,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // Login-Funktion
     const loginBtn = document.getElementById('login-btn');
     loginBtn && loginBtn.addEventListener('click', function() {
-        const email = document.getElementById('login-email').value;
+        const username = document.getElementById('login-username').value;
         const password = document.getElementById('login-password').value;
 
         // Login mit der Datenbank (API-Call)
-        fetch('/api/login', {
+        fetch('/login', {  // Anpassen der URL zu '/login' für den Backend-Endpunkt
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ username, password })
         }).then(response => response.json())
           .then(data => {
-              if (data.success) {
+              if (data.message === 'Login successful!') {
                   localStorage.setItem('userLoggedIn', true); // Benutzer als eingeloggt markieren
                   window.location.href = 'profile.html'; // Weiterleitung zu Profilseite
               } else {
                   alert('Login fehlgeschlagen');
               }
+          }).catch(error => {
+              alert('Ein Fehler ist aufgetreten');
           });
     });
 
@@ -46,36 +48,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('create-username').value;
         const password = document.getElementById('create-password').value;
 
-        // Check, ob E-Mail und Benutzername bereits existieren
-        fetch('/api/check-account', {
+        // Account erstellen (API-Call)
+        fetch('/register', {  // Anpassen der URL zu '/register' für den Backend-Endpunkt
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, username })
+            body: JSON.stringify({ email, username, password })
         }).then(response => response.json())
           .then(data => {
-              if (data.exists) {
-                  alert('E-Mail oder Benutzername bereits vergeben');
+              if (data.message === 'User registered successfully!') {
+                  alert('Account erfolgreich erstellt');
+                  localStorage.setItem('userLoggedIn', true); // Benutzer als eingeloggt markieren
+                  window.location.href = 'profile.html'; // Weiterleitung zum Profil
               } else {
-                  // Account erstellen
-                  fetch('/api/create-account', {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify({ email, username, password })
-                  }).then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Account erfolgreich erstellt');
-                            localStorage.setItem('userLoggedIn', true); // Benutzer als eingeloggt markieren
-                            window.location.href = 'profile.html'; // Weiterleitung zum Profil
-                        } else {
-                            alert('Account-Erstellung fehlgeschlagen');
-                        }
-                    });
+                  alert('Account-Erstellung fehlgeschlagen');
               }
+          }).catch(error => {
+              alert('Ein Fehler ist aufgetreten');
           });
     });
 

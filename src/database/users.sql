@@ -14,8 +14,3 @@ VALUES ('Steven@example.com', 'TieRub', 'password123', '/html/assets/tierub.png'
        ('Marcel@example.com', 'Matzel', 'password456', '/html/assets/matzel.png'),
        ('Victoria@example.com', 'Marshila', 'password789', '/html/assets/marshila.png'),
        ('kenneth@example.com', 'Helistormer', 'password789', '/html/assets/helistormer.png');
-
-
-
-
-
