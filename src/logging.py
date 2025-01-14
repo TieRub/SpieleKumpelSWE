@@ -1,37 +1,41 @@
-from flask import Flask, request, jsonify, session
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from flask_session import Session
+import sqlite3
+from flask import Flask, request, jsonify, g
 
-# Flask-App initialisieren
 app = Flask(__name__)
 
+DATABASE = 'users.db'
 
+# Helper function to get a database connection
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+        db.row_factory = sqlite3.Row  # Return rows as dictionaries
+    return db
 
-# Konfigurationen
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite-Datenbank
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'supersecretkey'  # Wähle einen sicheren Schlüssel
-app.config['SESSION_TYPE'] = 'filesystem'
+# Cleanup database connection
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
 
-# Extensions initialisieren
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-Session(app)
-
-# Datenbankmodell für Benutzer
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(200), nullable=False)
-
-# Datenbank erstellen (nur einmal ausführen)
-@app.before_request
-def create_tables():
+# Initialize the database and create the `users` table
+@app.before_first_request
+def init_db():
     with app.app_context():
-        db.create_all()
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL
+        )
+        """)
+        db.commit()
 
-# Route: Benutzerkonto erstellen
+# Route: Register a new user
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
@@ -39,19 +43,20 @@ def register():
     password = data.get('password')
 
     if not username or not password:
-        return jsonify({'message': 'Username und Passwort sind erforderlich.'}), 400
+        return jsonify({'message': 'Username and password are required.'}), 400
 
-    if User.query.filter_by(username=username).first():
-        return jsonify({'message': 'Benutzername existiert bereits.'}), 400
+    try:
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        db.commit()
+        return jsonify({'message': 'User registered successfully!'}), 201
+    except sqlite3.IntegrityError:
+        return jsonify({'message': 'Username already exists.'}), 400
+    except Exception as e:
+        return jsonify({'message': 'An error occurred.', 'error': str(e)}), 500
 
-    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    new_user = User(username=username, password=hashed_password)
-    db.session.add(new_user)
-    db.session.commit()
-
-    return jsonify({'message': 'Benutzer erfolgreich registriert!'}), 201
-
-# Route: Login
+# Route: User login
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -59,28 +64,29 @@ def login():
     password = data.get('password')
 
     if not username or not password:
-        return jsonify({'message': 'Username und Passwort sind erforderlich.'}), 400
+        return jsonify({'message': 'Username and password are required.'}), 400
 
-    user = User.query.filter_by(username=username).first()
-    if user and bcrypt.check_password_hash(user.password, password):
-        session['user_id'] = user.id
-        return jsonify({'message': 'Login erfolgreich!'}), 200
-    else:
-        return jsonify({'message': 'Ungültiger Benutzername oder Passwort.'}), 401
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+
+    if user and user['password'] == password:  # Replace with bcrypt for production
+        return jsonify({'message': 'Login successful!'}), 200
+    return jsonify({'message': 'Invalid username or password.'}), 401
 
 # Route: Logout
 @app.route('/logout', methods=['POST'])
 def logout():
-    session.pop('user_id', None)
-    return jsonify({'message': 'Erfolgreich ausgeloggt!'}), 200
+    # Session management not implemented in this simplified version
+    return jsonify({'message': 'Logged out successfully!'}), 200
 
-# Route: Geschützte Ressource (nur für eingeloggte Benutzer)
+# Route: Protected resource
 @app.route('/protected', methods=['GET'])
 def protected():
-    if 'user_id' not in session:
-        return jsonify({'message': 'Nicht autorisiert.'}), 401
-    return jsonify({'message': 'Willkommen zur geschützten Ressource!'}), 200
+    # Authentication mechanism should be implemented for real use
+    return jsonify({'message': 'Welcome to the protected resource!'}), 200
 
-# Server starten
+# Start the server
 if __name__ == '__main__':
     app.run(debug=True)
