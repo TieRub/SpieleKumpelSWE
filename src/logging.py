@@ -20,21 +20,6 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-# Initialize the database and create the `users` table
-@app.before_first_request
-def init_db():
-    with app.app_context():
-        db = get_db()
-        cursor = db.cursor()
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL
-        )
-        """)
-        db.commit()
-
 # Route: Register a new user
 @app.route('/register', methods=['POST'])
 def register():
