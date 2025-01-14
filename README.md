@@ -1,4 +1,6 @@
 File Structure:
+|--     /flask_session
+|--     |--     2029240f6d1128be89ddc32729463129
 |--     /src
 |--     |-- /database
 |--     |-- /html
