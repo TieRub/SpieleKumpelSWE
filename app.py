@@ -19,11 +19,11 @@ def create_app():
             username = request.form['username']
             password = request.form['password']
             if validate_login(username, password):
-                return redirect(url_for('index'))  # Redirect to home after successful login
+                return redirect(url_for('index'))
             else:
                 flash('Invalid username or password', 'error')
                 return redirect(url_for('login'))
-        return render_template('logging/login.html')  # Corrected the typo here
+        return render_template('logging/login.html')
 
     # register.html
     @app.route('/register', methods=['GET', 'POST'])
@@ -33,7 +33,7 @@ def create_app():
             password = request.form['password']
             email = request.form['email']
             if register_user(username, password, email):
-                return redirect(url_for('login'))  # Redirect to login page after successful registration
+                return redirect(url_for('login'))
             else:
                 flash('Username already exists, please choose a different one', 'error')
                 return redirect(url_for('register'))
@@ -42,10 +42,10 @@ def create_app():
     # Logout route
     @app.route('/logout')
     def logout_route():
-        return logout()  # Ensure your logout function handles the session properly
+        return logout()
 
     return app
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True, port=8080)  # Set the port to 8080
+    app.run(debug=True, port=8080)
