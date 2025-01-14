@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-01-14.18:23:41</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-14.18:25:10</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1624,36 +1624,37 @@
       <Position>2</Position>
     </column>
     <column id="565" parent="557" name="id">
-      <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
-      <StoredType>INTEGER|0s</StoredType>
+      <StoredType>INT AUTO_INCREMENT|0s</StoredType>
     </column>
     <column id="566" parent="557" name="username">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
+      <StoredType>VARCHAR(50)|0s</StoredType>
     </column>
-    <column id="567" parent="557" name="email">
+    <column id="567" parent="557" name="password">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>TEXT|0s</StoredType>
+      <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
-    <column id="568" parent="557" name="password">
+    <column id="568" parent="557" name="email">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StoredType>TEXT|0s</StoredType>
+      <StoredType>VARCHAR(100)|0s</StoredType>
     </column>
-    <index id="569" parent="557" name="sqlite_autoindex_users_1">
-      <ColNames>email</ColNames>
+    <column id="569" parent="557" name="created_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>TIMESTAMP|0s</StoredType>
+    </column>
+    <index id="570" parent="557" name="sqlite_autoindex_users_1">
+      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="570" parent="557">
+    <key id="571" parent="557">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-    </key>
-    <key id="571" parent="557">
-      <ColNames>email</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
     </key>
   </database-model>

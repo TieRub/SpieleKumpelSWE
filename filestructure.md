@@ -1,3 +1,4 @@
+/SpieleKumpelSWE
 |--     /src
 |--     |-- /database
 |--     |   |-- users.sql
