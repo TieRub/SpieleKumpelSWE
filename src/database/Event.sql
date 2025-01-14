@@ -5,7 +5,7 @@ CREATE TABLE Events
     name            STRING  NOT NULL,
     FOREIGN KEY (creator_id) REFERENCES users (id),
     max_mitglieder  INTEGER NOT NULL,
-    privat          BOOLEAN,
+    oefentlich          BOOLEAN,
     description     STRING,
     datum           DATE,
     mitglieder      LIST,

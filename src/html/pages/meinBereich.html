@@ -1,63 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head id="i3mk" data-gjs-type="head">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com" rel="preconnect" data-silex-gstatic="">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="" data-silex-gstatic="">
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesK.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesM.css') }}">
     <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
 
+
+    <link href="https://fonts.googleapis.com/" rel="preconnect">
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
 </head>
-<body class="">
-<div data-gjs-highlightable="true" id="i7yo" data-gjs-type="wrapper" class="" draggable="true">
-    <div data-gjs-highlightable="true" id="iu8uq" data-gjs-type="container" draggable="true" class="">
-        <div data-gjs-highlightable="true" id="ihjng" data-gjs-type="text" draggable="true" class=""
-             contenteditable="false"><b id="ik6k2" data-gjs-type="default" draggable="true"><u id="igumh"
-                                                                                               data-gjs-type="text"
-                                                                                               draggable="true"
-                                                                                               class="">Profil</u></b><br
-                id="i8yz9" data-gjs-type="default" draggable="true"></div>
-        <img id="iajng" data-gjs-type="image" draggable="true"
-             src="/src/html/assets/Screenshot 2024-12-04 170533.png">
-        <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="layout-box">
-            <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">
-                    Username:
-                </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1">{{ ['username'] }}
+<body>
+<div id="ioy1">
+    <div id="ic3p">
+        <u>Mein Bereich</u>
+    </div>
+    <div id="idn2">Events + Teilnahme</div>
+    <img id="ixqp"
+         src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"/>
+    <div id="is7rj">Hier steht die Info</div>
+    <img id="i4msi" src="data:image/svg+xml;base64"/>
+    <div id="i8nkv">mehr Event Info</div>
+    <img id="iuv21" src="data:image/svg+xml;base64"/>
+    <div id="is8hs">woah woah</div>
+</div>
 
-                </div>
-            </div>
-            <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">E-Mail:
-                </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1">{{ ['email'] }}
-
-                </div>
-            </div>
-        </div>
-        <div data-gjs-highlightable="true" id="ivm86" data-gjs-type="container" draggable="true" class="layout-box">
-            <div data-gjs-highlightable="true" id="iqqce" data-gjs-type="text" draggable="true" class="">Über Mich:
-            </div>
-            <div data-gjs-highlightable="true" id="ihwh2" data-gjs-type="container" draggable="true" class="">
-                <div data-gjs-highlightable="true" id="iwalb" data-gjs-type="text" draggable="true" class=""
-                     contenteditable="false">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                    eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                    et
-                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                    dolor
-                    sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                    duo
-                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                    amet.
-                </div>
-            </div>
-        </div>
-        <div class="fabs" role="group" aria-label="Floating action buttons">
-            <a href="{{ url_for('editProfile') }}">
+<div class="fabs" role="group" aria-label="Floating action buttons">
+            <a href="{{ url_for('create') }}">
                 <button data-icon="heart" class="fab mini" title="Like action" aria-label="Like action">
                     <svg aria-hidden="true" width="48" height="48" viewBox="0 0 16 16">
                         <path xmlns="http://www.w3.org/2000/svg" id="rect140"
@@ -67,14 +37,9 @@
                 </button>
             </a>
         </div>
-        <div class="spacer" id="s1" aria-labelledby="profile-tab">
-
-        </div>
-    </div>
-
-</div>
+<div id="ibyut">+</div>
 <div id="footer-placeholder"></div>
 
-<script src="../../script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

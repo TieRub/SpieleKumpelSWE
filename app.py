@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, session
 from flask import render_template
 
 app = Flask(__name__, template_folder='src/html', static_folder='src/html')
@@ -6,8 +6,21 @@ app = Flask(__name__, template_folder='src/html', static_folder='src/html')
 
 
 @app.route('/')
-def profile(post= 1):
-    return render_template('pages/profile.html', username=post)
+def meinBereich():
+    return render_template('pages/meinBereich.html')
+
+@app.route('/create')
+def create():
+    return render_template('pages/create.html')
+
+
+@app.route('/index')
+def index():
+    return render_template('pages/index.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('pages/profile.html')
 
 @app.route('/editProfile')
 def editProfile():
@@ -21,6 +34,7 @@ def kumpel_verwaltung():
 @app.route('/kumpelSuche')
 def kumpelSuche():
     return render_template('pages/kumpelSuche.html')
+
 
 @app.route('/logging')
 def logging():
