@@ -15,6 +15,7 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 Session(app)
 
+
 # Datenbankmodell für Benutzer
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,19 +24,17 @@ class User(db.Model):
 
 @app.route('/kumpelSuche', methods=['POST', 'GET'])
 def suche():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        if not username:
-            return render_template('pages/kumpelSuche.html', error="Kein Kumpel angegeben")
+    username = request.form.get('username')
+    if not username:
+        return render_template('pages/kumpelSuche.html', error="Kein Kumpel angegeben")
 
-        user = User.query.filter_by(username=username).first()
-        if user:
-            return render_template('pages/kumpelSuche.html', user=user)
-        else:
-            return render_template('pages/kumpelSuche.html', message="Kumpel wurde nicht gefunden:(")
+    user = User.query.filter_by(username=username).join().first()
+    if user:
+        return render_template('pages/kumpelSuche.html', user=user)
+    else:
+        return render_template('pages/kumpelSuche.html', message="Kumpel wurde nicht gefunden:(")
+
     return render_template('pages/kumpelSuche.html')
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

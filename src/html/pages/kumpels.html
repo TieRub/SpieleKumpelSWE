@@ -19,12 +19,12 @@
                 <th>Benutzername</th>
                 <th>Bild</th>
             </tr>
-            {% for friend in friends %}
+            {% for friend in Friends %}
             <tr>
-                <td>{{ friend.username }}</td>
+                <td>{{ Friends.username }}</td>
                 <td>
-                    <img src="{{ url_for('static', filename='images/' + friend.username + '.png') }}"
-                         alt="Profilbild von {{ friend.username }}"
+                    <img src="{{ url_for('static', filename='images/' + Friend.username + '.png') }}"
+                         alt="Profilbild von {{ Friends.username }}"
                          width="50">
                 </td>
             </tr>
@@ -43,14 +43,14 @@
             </tr>
             {% for request in requests %}
             <tr>
-                <td>{{ request.from_user.username }}</td>
+                <td>{{ FriendRequest.from_user.username }}</td>
                 <td>
-                    <img src="{{ url_for('static', filename='images/' + request.from_user.username + '.png') }}"
-                         alt="Profilbild von {{ request.from_user.username }}"
+                    <img src="{{ url_for('static', filename='images/' + FriendRequest.from_user.username + '.png') }}"
+                         alt="Profilbild von {{ FriendRequest.from_user.username }}"
                          width="50" onerror="this.src='/static/images/default-profile.png';">
                 </td>
                 <td>
-                    <form method="POST" action="{{ url_for('friendRequest', request_id=request.id) }}">
+                    <form method="POST" action="{{ url_for('FriendRequest', request_id=request.id) }}">
                         <button type="submit" name="action" value="accept">Annehmen</button>
                         <button type="submit" name="action" value="delete">Ablehnen</button>
                     </form>

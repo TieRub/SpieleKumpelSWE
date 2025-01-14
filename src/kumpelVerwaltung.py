@@ -10,14 +10,9 @@ app = Flask(__name__)
 
 
 @app.route('/kumpels')
-@login_required
 def friends():
-    user = User.query.get(current_user.id)
-    friends = user.friends_from + user.friends_to
-    requests = user.friend_requests_received
-    no_friends = [req.friend_from for req in user.friend_requests_sent if req.status == 'pending']
-
-    return render_template('kumpels.html', friends=friends, requests=requests, no_friends=no_friends)
+    friend = Friends.query.filter_by(status='friends').join()
+    return render_template('kumpels.html')
 
 
 

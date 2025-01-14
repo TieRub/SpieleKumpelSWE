@@ -6,6 +6,8 @@ from flask_session import Session
 # Flask-App initialisieren
 app = Flask(__name__)
 
+
+
 # Konfigurationen
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite-Datenbank
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

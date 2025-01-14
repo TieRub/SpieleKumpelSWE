@@ -1,13 +1,19 @@
-from flask import Flask, request, jsonify, session
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from flask_login import UserMixin, login_user, LoginManager, login_required
+from flask import Flask
 from flask import render_template
 
 app = Flask(__name__, template_folder='src/html', static_folder='src/html')
 
 
+
 @app.route('/')
+def profile(post= 1):
+    return render_template('pages/profile.html', username=post)
+
+@app.route('/editProfile')
+def editProfile():
+    return render_template('pages/editProfile.html')
+
+@app.route('/kumpel_verwaltung')
 def kumpel_verwaltung():
     return render_template('pages/kumpels.html')
 
