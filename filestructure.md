@@ -1,7 +1,13 @@
 /SpieleKumpelSWE
 |--     /src
 |--     |-- /database
-|--     |   |-- users.sql
+|--     |   |-- /event
+|--     |   |   |-- events.sql
+|--     |   |-- /user
+|--     |   |   |-- friend_request.sql
+|--     |   |   |-- friends.sql
+|--     |   |   |-- no_friends.sql
+|--     |   |   |-- users.sql
 |--     |-- /html
 |--     |   |-- /assets
 |--     |   |   |-- /icons
@@ -9,9 +15,19 @@
 |--     |   |   |   |-- /site
 |--     |   |   |-- /profile_picture
 |--     |   |-- /pages
+|--     |   |   |-- /event
+|--     |   |   |   |-- events_create.html
+|--     |   |   |   |-- events_edit.html
+|--     |   |   |   |-- events_view.html
 |--     |   |   |-- /logging
 |--     |   |   |   |-- login.html
+|--     |   |   |   |-- logout.html
 |--     |   |   |   |-- register.html
+|--     |   |   |-- /user
+|--     |   |   |   |-- friends_search.html
+|--     |   |   |   |-- friends_view.html
+|--     |   |   |   |-- profile_edit.html
+|--     |   |   |   |-- profile_view.html
 |--     |   |   |-- base.html
 |--     |   |   |-- index.html
 |--     |   |-- /scripts
