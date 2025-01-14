@@ -6,12 +6,18 @@
 |--     |   |-- /pages
 |--     |   |   |-- base.html
 |--     |   |   |-- index.html
-|--     |   |   |-- logging.html
+|--     |   |   |-- login.html
+|--     |   |   |-- register.html
 |--     |   |-- /scripts
-|--     |   |   |-- script-logging.js
+|--     |   |   |-- script-login.js
+|--     |   |   |-- script-logout.js
+|--     |   |   |-- script-register.js
 |--     |   |-- /styles
-|--     |   |   |-- style-logging.css
+|--     |   |   |-- style-global.css
 |--     |-- /services
-|--     |   |-- logging.py
+|--     |   |-- login.py
+|--     |   |-- logout.py
+|--     |   |-- register.py
+|--     |-- /venv
 |--     app.py
 |--     Spielekumpel-DB.sqlite
