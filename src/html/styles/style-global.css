@@ -1,54 +1,120 @@
-/* General reset */
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
-    min-height: 100vh; /* Ensure the body takes full height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* Header styles (at the bottom) */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Non-collapsible links as images */
+.non-collapsible-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.non-collapsible-links li {
+    margin: 0;
+}
+
+.non-collapsible-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.non-collapsible-links img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.non-collapsible-links img:hover {
+    transform: scale(1.2);
+}
+
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.burger-menu .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Collapsible nav-links styles */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+/* Footer styles (at the top) */
 footer {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
-    width: 100%; /* Ensure the footer takes full width */
+    width: 100%;
     position: fixed;
-    top: 0; /* Footer is now at the top */
+    top: 0;
     left: 0;
     z-index: 1000;
+    text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
+/* Main content styles */
 main {
     max-width: 1200px;
-    margin: 80px auto 60px auto; /* Added margin to offset the fixed header (footer) and footer (header) */
+    margin: 60px auto 80px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex-grow: 1; /* Allow main content to take available space */
+    flex-grow: 1;
 }
 
 h2 {
@@ -57,6 +123,7 @@ h2 {
     text-align: center;
 }
 
+/* Form styles */
 form {
     display: flex;
     flex-direction: column;
@@ -93,12 +160,26 @@ form button:hover {
     background-color: #555;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0; /* Header is now at the bottom */
-    left: 0;
+/* Responsive styles */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: -120px;
+        left: 10px;
+        width: 200px;
+        padding: 1rem;
+        border-radius: 5px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
 }

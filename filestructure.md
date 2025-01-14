@@ -4,6 +4,10 @@
 |--     |   |-- users.sql
 |--     |-- /html
 |--     |   |-- /assets
+|--     |   |   |-- /icons
+|--     |   |   |   |-- /game
+|--     |   |   |   |-- /site
+|--     |   |   |-- /profile_picture
 |--     |   |-- /pages
 |--     |   |   |-- /logging
 |--     |   |   |   |-- login.html
@@ -18,6 +22,6 @@
 |--     |   |-- login.py
 |--     |   |-- logout.py
 |--     |   |-- register.py
-|--     |-- /venv
+|--     /venv
 |--     app.py
 |--     Spielekumpel-DB.sqlite

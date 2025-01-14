@@ -9,13 +9,28 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
+            <ul class="non-collapsible-links">
+                <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/home.png') }}" alt="Home"></a></li>
+                <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/dashboard.png') }}" alt="Dashboard"></a></li>
+                <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/user.png') }}" alt="User"></a></li>
+            </ul>
+
+            <!-- menu-->
+            <div class="burger-menu" id="burgerMenu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><a href="/"></a></li>
+                <li><a href="/"></a></li>
             </ul>
         </nav>
     </header>
+
+    <script src="{{ url_for('static', filename='scripts/script-global.js') }}"></script>
+
 
     <main>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -29,12 +44,12 @@
         {% endwith %}
 
         {% block content %}
-        <!-- Content from child templates will go here -->
+            <!-- pages -->
         {% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2025 Spielekumpel. All rights reserved.</p>
+        <p>&copy; Spielekumpel</p>
     </footer>
 </body>
 </html>

@@ -4,16 +4,15 @@ from src.services.register import register_user
 from src.services.logout import logout
 
 def create_app():
-    # Correct the template and static folder paths
     app = Flask(__name__, template_folder='src/html/pages', static_folder='src/html')
-    app.secret_key = 'your_secret_key'  # Required for flashing messages in Flask
+    app.secret_key = 'your_secret_key'
 
-    # Home route (index.html)
+    # index.html
     @app.route('/')
     def index():
-        return render_template('index.html')  # Ensure the correct path based on 'src/html/pages'
+        return render_template('index.html')
 
-    # Login route (login.html)
+    # login.html
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
@@ -26,7 +25,7 @@ def create_app():
                 return redirect(url_for('login'))
         return render_template('logging/login.html')  # Corrected the typo here
 
-    # Register route (register.html)
+    # register.html
     @app.route('/register', methods=['GET', 'POST'])
     def register():
         if request.method == 'POST':

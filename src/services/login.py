@@ -1,5 +1,5 @@
 import sqlite3
-from werkzeug.security import check_password_hash  # For checking hashed passwords
+from werkzeug.security import check_password_hash
 
 
 def validate_login(username, password):
@@ -12,5 +12,5 @@ def validate_login(username, password):
     conn.close()
 
     if stored_password:
-        return check_password_hash(stored_password[0], password)  # Returns True if passwords match
+        return check_password_hash(stored_password[0], password)
     return False
