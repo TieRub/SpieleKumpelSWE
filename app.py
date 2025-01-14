@@ -24,7 +24,7 @@ def create_app():
             else:
                 flash('Invalid username or password', 'error')
                 return redirect(url_for('login'))
-        return render_template('login.html')  # Corrected the typo here
+        return render_template('logging/login.html')  # Corrected the typo here
 
     # Register route (register.html)
     @app.route('/register', methods=['GET', 'POST'])
@@ -38,7 +38,7 @@ def create_app():
             else:
                 flash('Username already exists, please choose a different one', 'error')
                 return redirect(url_for('register'))
-        return render_template('register.html')
+        return render_template('logging/register.html')
 
     # Logout route
     @app.route('/logout')

@@ -5,10 +5,11 @@
 |--     |-- /html
 |--     |   |-- /assets
 |--     |   |-- /pages
+|--     |   |   |-- /logging
+|--     |   |   |   |-- login.html
+|--     |   |   |   |-- register.html
 |--     |   |   |-- base.html
 |--     |   |   |-- index.html
-|--     |   |   |-- login.html
-|--     |   |   |-- register.html
 |--     |   |-- /scripts
 |--     |   |   |-- script-login.js
 |--     |   |   |-- script-logout.js
