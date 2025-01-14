@@ -11,9 +11,7 @@
 |--     |   |   |-- base.html
 |--     |   |   |-- index.html
 |--     |   |-- /scripts
-|--     |   |   |-- script-login.js
-|--     |   |   |-- script-logout.js
-|--     |   |   |-- script-register.js
+|--     |   |   |-- script-global.js
 |--     |   |-- /styles
 |--     |   |   |-- style-global.css
 |--     |-- /services
