@@ -16,4 +16,4 @@ VALUES
 ('Victoria@example.com', 'Marshila', 'password789', '{{ url_for(''static'', filename=''assets/profile_picture/pp003.png'') }}'),
 ('kenneth@example.com', 'Helistormer', 'password789', '{{ url_for(''static'', filename=''assets/profile_picture/pp004.png'') }}');
 
-DROP TABLE users
+DROP TABLE users;
