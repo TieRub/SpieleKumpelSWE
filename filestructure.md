@@ -19,6 +19,7 @@
 |--     |   |-- /styles
 |--     |   |   |-- style-global.css
 |--     |-- /services
+|--     |   |-- __init__.py
 |--     |   |-- login.py
 |--     |   |-- logout.py
 |--     |   |-- register.py
