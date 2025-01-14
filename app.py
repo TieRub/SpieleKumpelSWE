@@ -5,7 +5,7 @@ from src.services.logout import logout
 
 def create_app():
     # Correct the template and static folder paths
-    app = Flask(__name__, template_folder='src/html/pages', static_folder='src/html/assets')
+    app = Flask(__name__, template_folder='src/html/pages', static_folder='src/html')
     app.secret_key = 'your_secret_key'  # Required for flashing messages in Flask
 
     # Home route (index.html)
