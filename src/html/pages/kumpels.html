@@ -60,24 +60,6 @@
         </table>
     </div>
 
-    <!-- Gesendete Freundschaftsanfragen -->
-    <div class="keineKumpels">
-        <h3>Mit diesen Kumpels möchtest du befreundet sein</h3>
-        <table>
-            <tr>
-                <th>Benutzername</th>
-                <th>Bild</th>
-            </tr>
-            {% for no_friend in no_friends %}
-            <tr>
-                <td>{{ no_friend.username }}</td>
-                <td>
-                    <img src="{{ url_for('static', filename='images/' + no_friend.username + '.png') }}"
-                         alt="Profilbild von {{ no_friend.username }}"
-                         width="50" onerror="this.src='/static/images/default-profile.png';">
-                </td>
-            </tr>
-            {% endfor %}
         </table>
     </div>
 

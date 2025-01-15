@@ -22,17 +22,29 @@
         <h3>Events + Teilnahme</h3>
         <table>
             <tr>
-                <th>Event</th>
                 <th>Bild</th>
+                <th>Event</th>
+                <th>Owner</th>
+                <th>Aktivität</th>
+                <th>Maximale Mitglieder</th>
+                <th>Beschreibung</th>
+                <th>Aktuelle Mitglieder Anzahl</th>
+
+
             </tr>
             {% for event in events %}
             <tr>
-                <td>{{ event.name }}</td>
                 <td>
                     <img src="{{ url_for('static', filename='images/' + event + '.png') }}"
                          alt="Profilbild von {{ event.name }}"
                          width="50" onerror="this.src='/static/images/default-event.png';">
                 </td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.username }}</td>
+                <td>{{ event.aktivitaet }}</td>
+                <td>{{ event.max_mitglieder }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.aktuelle_anzahl }}</td>
             </tr>
             {% endfor %}
         </table>
