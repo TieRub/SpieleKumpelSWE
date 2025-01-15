@@ -25,26 +25,6 @@ def get_event(id):
 
 #create
 @app.route('/createEvent', methods=['POST'])
-def create_event(creator_id, name, max_mitglieder, oefentlich, datum):
-    conn = get_db()
-    c = conn.cursor()
-
-    creator_id = session['user_id']
-    name = request.form.get('name')
-    max_mitglieder = request.form.get('max_mitglieder')
-    oefentlich = request.form.get('oefentlich')
-    datum = request.form.get('datum')
-
-    c.execute(""
-              "INSERT INTO Events (creator_id, name, max_mitglieder, oefentlich, description, datum, aktuelle_anzahl) "
-              "VALUES (?, ?, ?, ?, ?, ?, ?)",
-              (creator_id, name, max_mitglieder, oefentlich, datum, 1 ))
-    conn.commit()
-    message = f"Event '{name}' wurde erfolgreich erstellt!"
-    return render_template('pages/meinBereich.html', message=message)
-
-
-@app.route('/createEvent', methods=['POST'])
 def create_event():
 
     # Hole die Formulardaten

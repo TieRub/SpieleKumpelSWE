@@ -10,7 +10,7 @@ app.config['SESSION_TYPE'] = 'filesystem'  # Speicherung der Sitzung auf dem Dat
 Session(app)  # Initialisiere Flask-Session
 
 
-@app.route('/')
+@app.route('/ediitProfile')
 def editProfile():
 
     return render_template('pages/editProfile.html')
