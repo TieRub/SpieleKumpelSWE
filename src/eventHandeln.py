@@ -1,8 +1,6 @@
 import sqlite3
 from datetime import datetime
-from urllib import request
-
-from flask import Flask, render_template, session, redirect, url_for
+from flask import Flask, render_template, session, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -29,19 +27,24 @@ def create_event():
 
     # Hole die Formulardaten
     name = request.form['name']
-    plan = request.form['plan']
+    aktivitaet = request.form['plan']
     oefentlich = 1 if 'oefentlich' in request.form else 0  # Überprüfen, ob die Checkbox aktiviert ist
     datum = request.form['datum']
+    max_mitglieder = request.form['max_mitglieder']
     beschreibung = request.form['beschreibung']
 
-    # Hole die Benutzer-ID aus der Session
+
+    # Hole die Benutzer-ID und den Benutzernamen aus der Session
     creator_id = session['user_id']
+    mitglieder = session['username']
+
+    aktuelle_anzahl = 1
 
     # Datenbankeintrag für das Event erstellen
     conn = sqlite3.connect(DATABASE)
     c = conn.cursor()
-    c.execute("INSERT INTO Events (creator_id, name, plan, oefentlich, datum, beschreibung) VALUES (?, ?, ?, ?, ?, ?)",
-              (creator_id, name, plan, oefentlich, datum, beschreibung))
+    c.execute("INSERT INTO Events (creator_id, name, aktiviteat, max_mitglieder, oefentlich, datum, beschreibung, mitglieder, aktuelle_anzahl) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+              (creator_id, name, aktivitaet, max_mitglieder, oefentlich, datum, beschreibung, mitglieder, aktuelle_anzahl))
     conn.commit()
     conn.close()
 

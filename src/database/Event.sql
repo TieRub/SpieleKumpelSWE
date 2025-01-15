@@ -3,6 +3,7 @@ CREATE TABLE Events
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     creator_id      INTEGER NOT NULL,
     name            STRING NOT NULL,
+    aktivitaet      STRING NOT NULL,
     max_mitglieder  INTEGER NOT NULL,
     oefentlich          BOOLEAN,
     description     STRING,
@@ -15,7 +16,7 @@ CREATE TABLE Events
 );
 
 
-INSERT INTO Events (creator_id, name, max_mitglieder, oefentlich, description, datum, aktuelle_anzahl)
-VALUES (2, 'SUPER KRASSES Event', 4, 1, 'YOLO', NULL, 1),
-       (4, 'S-Tier Event', 4, 1, 'auf Lock', 2055 - 01 - 08, 1);
+INSERT INTO Events (creator_id, name, aktivitaet, max_mitglieder, oefentlich, description, datum, aktuelle_anzahl)
+VALUES (2, 'SUPER KRASSES Event', 'Fortnite', 4, 1, 'YOLO', NULL, 1),
+       (4, 'S-Tier Event', 'Minecraft', 4, 1, 'auf Lock', 2055 - 01 - 08, 1);
 
