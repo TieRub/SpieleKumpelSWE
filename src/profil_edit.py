@@ -1,25 +1,53 @@
 from flask import Flask, render_template, request
-from sqlalchemy.orm import sessionmaker
-from src.database import db_session  # Assuming db_session is correctly defined in your src.database module
 
-from src.models import User  # Assuming User model is defined here
+app = Flask(__name__)
+import sqlite3
+from datetime import datetime
+
+from flask import render_template, Flask, request, session, redirect, url_for
+
+DATABASE = "C:/Users/victo/PycharmProjects/newOrderSWE/Spielekumpel-DB.sqlite"
 
 app = Flask(__name__)
 
 
+def get_db():
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    return c
+
+
+def get_user(username):
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute("SELECT username FROM users WHERE username = ?", (username,))
+    result = c.fetchall()
+    conn.close()
+    return result
+
+
 @app.route('/editProfil', methods=['POST'])
 def edit():
-    # Check if the button is pressed (handled via form submission)
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+
     if request.method == 'POST':
         new_picture = request.form.get('new_picture')
         new_username = request.form.get('new_username')
         new_email = request.form.get('new_email')
-        new_Vornamen = request.form.get('new_Vornamen')
-        new_Nachname = request.form.get('new_Nachname')
 
-        # Check if the username already exists
-        if db_session.query(User).filter_by(username=new_username).first():
-            return "Username already exists"
+        # Check if the new username is already taken
+        c.execute("SELECT * FROM users WHERE username = ?", (new_username,))
+        result = c.fetchall()
 
-        # Updating user information
-        user = db
+        if result:
+            message = "Benutzername schon vergeben."
+            return render_template('editProfileK.html', message=message)
+        else:
+            # Proceed with updating the user's profile
+            c.execute("UPDATE users SET profile_picture = ?, username = ?, email = ? WHERE id = ?",
+                      (new_picture, new_username, new_email, session['user_id']))
+            conn.commit()
+            return redirect(url_for('profile'))
+
+    conn.close()

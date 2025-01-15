@@ -1,40 +1,66 @@
-from flask import Flask, request, jsonify, session, render_template
-from flask_sqlalchemy import SQLAlchemy
-from flask_bcrypt import Bcrypt
-from flask_session import Session
+import sqlite3
+from datetime import datetime
 
-# Flask-App initialisieren
+from flask import render_template, Flask, request, session, redirect, url_for
+
+DATABASE = "C:/Users/victo/PycharmProjects/newOrderSWE/Spielekumpel-DB.sqlite"
+
 app = Flask(__name__)
 
-# Konfigurationen
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite-Datenbank
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Extensions initialisieren
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-Session(app)
+def get_db():
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    return c
 
 
-# Datenbankmodell für Benutzer
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+def get_user(username):
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    c.execute("SELECT username FROM users WHERE username = ?", (username,))
+    result = c.fetchall()
+    conn.close()
+    return result
 
 
-@app.route('/kumpelSuche', methods=['POST', 'GET'])
-def suche():
-    username = request.form.get('username')
-    if not username:
-        return render_template('pages/kumpelSuche.html', error="Kein Kumpel angegeben")
+# Suchen
 
-    user = User.query.filter_by(username=username).join().first()
-    if user:
-        return render_template('pages/kumpelSuche.html', user=user)
-    else:
-        return render_template('pages/kumpelSuche.html', message="Kumpel wurde nicht gefunden:(")
+@app.route('/kumpelSuche', methods=['GET', 'POST'])
+def kumpelSuche():
+    if request.method == 'POST':
+        username = request.form.get('username')
 
+        # Debugging-Ausgabe
+        print(f"Suche nach Benutzer: {username}")
+
+        try:
+            user_data = get_user(username)
+            if user_data:
+                return render_template('pages/kumpelSuche.html', user_data=user_data)
+            else:
+                return render_template('pages/kumpelSuche.html', message="Kein Benutzer gefunden.")
+        except Exception as e:
+            print(f"Fehler: {e}")
+            return render_template('pages/kumpelSuche.html', error="Ein Fehler ist aufgetreten.")
     return render_template('pages/kumpelSuche.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+# Anfragen
+
+@app.route('/freundschaftsAnfrage', methods=['POST'])
+def freundschaftsAnfrage():
+    conn = sqlite3.connect(DATABASE)
+    c = conn.cursor()
+    to_user = request.form.get('to_user_id')  # Korrekt aus dem Formular auslesen
+    try:
+        c.execute("INSERT INTO FriendRequest (from_user_id, to_user_id) VALUES (?, ?)",
+                  (session['user_id'], to_user))
+        conn.commit()
+        message = "Freundschaftsanfrage erfolgreich gesendet!"
+    except sqlite3.Error as e:
+        print(f"Datenbankfehler: {e}")
+        message = "Ein Fehler ist aufgetreten!"
+    finally:
+        conn.close()
+
+    return render_template('pages/kumpels.html', new_friend_request=message)
