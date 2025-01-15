@@ -13,10 +13,18 @@ def get_db():
 
 def get_event(id):
     c = get_db()
-    c.execute("SELECT name FROM Events where id = ?", id)
-    result = c.fetchall()
-    for row in result:
-        print(row)
+    suche = c.execute("SELECT LIST(creator_id, name, aktivitaet, max_mitglieder, description, datum, aktuelle_anzahl) FROM Events where id = ?", id)
+    result = suche.fetchone()
+    hostname = c.execute("SELECT LIST(username) from users where id = ?", result[0])
+    owner = hostname.fetchone()[0]
+    event_name = result[1]
+    aktivitaet = result[2]
+    max_mitglieder = result[3]
+    description = result[4]
+    datum = result[5]
+    aktuelle_anzahl = result[6]
+    return render_template('pages/meinBereich.html', event_name= event_name)
+
 
 
 
