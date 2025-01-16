@@ -28,16 +28,5 @@
             <p>{{ about_me|default:"Keine Beschreibung verfügbar." }}</p>
         </div>
     </div>
-
-    <!-- Floating Action Button -->
-    <div class="action-buttons">
-        <a href="{{ url_for('editProfile') }}" class="edit-profile-button">
-            <button title="Edit Profile" aria-label="Edit Profile">
-                <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="..."/> <!-- Keep or update the SVG path -->
-                </svg>
-            </button>
-        </a>
-    </div>
 </div>
 {% endblock %}
