@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-01-16.01:39:32</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-16.02:05:20</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1590,216 +1590,305 @@
     <argument id="554" parent="190">
       <Position>1</Position>
     </argument>
-    <table id="555" parent="191" name="friend_pending"/>
-    <table id="556" parent="191" name="friends_current"/>
-    <table id="557" parent="191" name="profiles"/>
-    <table id="558" parent="191" name="sqlite_master">
+    <table id="555" parent="191" name="event_participants"/>
+    <table id="556" parent="191" name="events"/>
+    <table id="557" parent="191" name="friend_pending"/>
+    <table id="558" parent="191" name="friends_current"/>
+    <table id="559" parent="191" name="profiles"/>
+    <table id="560" parent="191" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="559" parent="191" name="sqlite_sequence">
+    <table id="561" parent="191" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="560" parent="191" name="users"/>
-    <check id="561" parent="555">
-      <Predicate>status IN (&apos;pending&apos;, &apos;accepted&apos;, &apos;declined&apos;)</Predicate>
-    </check>
-    <column id="562" parent="555" name="id">
+    <table id="562" parent="191" name="users"/>
+    <column id="563" parent="555" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="563" parent="555" name="sender_id">
+    <column id="564" parent="555" name="event_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="564" parent="555" name="receiver_id">
+    <column id="565" parent="555" name="user_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="565" parent="555" name="status">
-      <DefaultExpression>&apos;pending&apos;</DefaultExpression>
-      <Position>4</Position>
-      <StoredType>VARCHAR(20)|0s</StoredType>
-    </column>
-    <column id="566" parent="555" name="created_at">
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <Position>5</Position>
-      <StoredType>TIMESTAMP|0s</StoredType>
-    </column>
+    <foreign-key id="566" parent="555">
+      <ColNames>event_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>events</RefTableName>
+    </foreign-key>
     <foreign-key id="567" parent="555">
-      <ColNames>sender_id</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>id</RefColNames>
-      <RefTableName>users</RefTableName>
-    </foreign-key>
-    <foreign-key id="568" parent="555">
-      <ColNames>receiver_id</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>id</RefColNames>
-      <RefTableName>users</RefTableName>
-    </foreign-key>
-    <index id="569" parent="555" name="sqlite_autoindex_friend_pending_1">
-      <ColNames>sender_id
-receiver_id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Unique>1</Unique>
-    </index>
-    <key id="570" parent="555">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="571" parent="555" name="unique_request">
-      <ColNames>sender_id
-receiver_id</ColNames>
-      <UnderlyingIndexName>sqlite_autoindex_friend_pending_1</UnderlyingIndexName>
-    </key>
-    <column id="572" parent="556" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Position>1</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="573" parent="556" name="user_id_1">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="574" parent="556" name="user_id_2">
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="575" parent="556" name="created_at">
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
-      <Position>4</Position>
-      <StoredType>TIMESTAMP|0s</StoredType>
-    </column>
-    <foreign-key id="576" parent="556">
-      <ColNames>user_id_1</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>id</RefColNames>
-      <RefTableName>users</RefTableName>
-    </foreign-key>
-    <foreign-key id="577" parent="556">
-      <ColNames>user_id_2</ColNames>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>id</RefColNames>
-      <RefTableName>users</RefTableName>
-    </foreign-key>
-    <index id="578" parent="556" name="sqlite_autoindex_friends_current_1">
-      <ColNames>user_id_1
-user_id_2</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <Unique>1</Unique>
-    </index>
-    <key id="579" parent="556">
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="580" parent="556" name="unique_friendship">
-      <ColNames>user_id_1
-user_id_2</ColNames>
-      <UnderlyingIndexName>sqlite_autoindex_friends_current_1</UnderlyingIndexName>
-    </key>
-    <column id="581" parent="557" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Position>1</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="582" parent="557" name="user_id">
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>INTEGER|0s</StoredType>
-    </column>
-    <column id="583" parent="557" name="display_name">
-      <Position>3</Position>
-      <StoredType>VARCHAR(50)|0s</StoredType>
-    </column>
-    <column id="584" parent="557" name="about_me">
-      <Position>4</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <foreign-key id="585" parent="557">
       <ColNames>user_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <key id="586" parent="557">
+    <key id="568" parent="555">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="587" parent="558" name="type">
-      <Position>1</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="588" parent="558" name="name">
-      <Position>2</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="589" parent="558" name="tbl_name">
-      <Position>3</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="590" parent="558" name="rootpage">
-      <Position>4</Position>
-      <StoredType>INT|0s</StoredType>
-    </column>
-    <column id="591" parent="558" name="sql">
-      <Position>5</Position>
-      <StoredType>TEXT|0s</StoredType>
-    </column>
-    <column id="592" parent="559" name="name">
-      <Position>1</Position>
-    </column>
-    <column id="593" parent="559" name="seq">
-      <Position>2</Position>
-    </column>
-    <column id="594" parent="560" name="id">
+    <column id="569" parent="556" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
       <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="595" parent="560" name="username">
+    <column id="570" parent="556" name="creator_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>VARCHAR(50)|0s</StoredType>
+      <StoredType>INTEGER|0s</StoredType>
     </column>
-    <column id="596" parent="560" name="password">
+    <column id="571" parent="556" name="name">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>VARCHAR(255)|0s</StoredType>
+      <StoredType>VARCHAR(100)|0s</StoredType>
     </column>
-    <column id="597" parent="560" name="email">
+    <column id="572" parent="556" name="activity">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>VARCHAR(100)|0s</StoredType>
     </column>
-    <column id="598" parent="560" name="created_at">
+    <column id="573" parent="556" name="max_participants">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="574" parent="556" name="is_public">
+      <DefaultExpression>1</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>BOOLEAN|0s</StoredType>
+    </column>
+    <column id="575" parent="556" name="description">
+      <Position>7</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="576" parent="556" name="event_date">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>TIMESTAMP|0s</StoredType>
+    </column>
+    <column id="577" parent="556" name="current_participants">
+      <DefaultExpression>0</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <foreign-key id="578" parent="556">
+      <ColNames>creator_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <key id="579" parent="556">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <check id="580" parent="557">
+      <Predicate>status IN (&apos;pending&apos;, &apos;accepted&apos;, &apos;declined&apos;)</Predicate>
+    </check>
+    <column id="581" parent="557" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="582" parent="557" name="sender_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="583" parent="557" name="receiver_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="584" parent="557" name="status">
+      <DefaultExpression>&apos;pending&apos;</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>VARCHAR(20)|0s</StoredType>
+    </column>
+    <column id="585" parent="557" name="created_at">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>5</Position>
       <StoredType>TIMESTAMP|0s</StoredType>
     </column>
-    <index id="599" parent="560" name="sqlite_autoindex_users_1">
+    <foreign-key id="586" parent="557">
+      <ColNames>sender_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <foreign-key id="587" parent="557">
+      <ColNames>receiver_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <index id="588" parent="557" name="sqlite_autoindex_friend_pending_1">
+      <ColNames>sender_id
+receiver_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="589" parent="557">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="590" parent="557" name="unique_request">
+      <ColNames>sender_id
+receiver_id</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_friend_pending_1</UnderlyingIndexName>
+    </key>
+    <column id="591" parent="558" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="592" parent="558" name="user_id_1">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="593" parent="558" name="user_id_2">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="594" parent="558" name="created_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>4</Position>
+      <StoredType>TIMESTAMP|0s</StoredType>
+    </column>
+    <foreign-key id="595" parent="558">
+      <ColNames>user_id_1</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <foreign-key id="596" parent="558">
+      <ColNames>user_id_2</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <index id="597" parent="558" name="sqlite_autoindex_friends_current_1">
+      <ColNames>user_id_1
+user_id_2</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="598" parent="558">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="599" parent="558" name="unique_friendship">
+      <ColNames>user_id_1
+user_id_2</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_friends_current_1</UnderlyingIndexName>
+    </key>
+    <column id="600" parent="559" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="601" parent="559" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="602" parent="559" name="display_name">
+      <Position>3</Position>
+      <StoredType>VARCHAR(50)|0s</StoredType>
+    </column>
+    <column id="603" parent="559" name="about_me">
+      <Position>4</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <foreign-key id="604" parent="559">
+      <ColNames>user_id</ColNames>
+      <OnDelete>cascade</OnDelete>
+      <RefColNames>id</RefColNames>
+      <RefTableName>users</RefTableName>
+    </foreign-key>
+    <key id="605" parent="559">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="606" parent="560" name="type">
+      <Position>1</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="607" parent="560" name="name">
+      <Position>2</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="608" parent="560" name="tbl_name">
+      <Position>3</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="609" parent="560" name="rootpage">
+      <Position>4</Position>
+      <StoredType>INT|0s</StoredType>
+    </column>
+    <column id="610" parent="560" name="sql">
+      <Position>5</Position>
+      <StoredType>TEXT|0s</StoredType>
+    </column>
+    <column id="611" parent="561" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="612" parent="561" name="seq">
+      <Position>2</Position>
+    </column>
+    <column id="613" parent="562" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Position>1</Position>
+      <StoredType>INTEGER|0s</StoredType>
+    </column>
+    <column id="614" parent="562" name="username">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>VARCHAR(50)|0s</StoredType>
+    </column>
+    <column id="615" parent="562" name="password">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>VARCHAR(255)|0s</StoredType>
+    </column>
+    <column id="616" parent="562" name="email">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>VARCHAR(100)|0s</StoredType>
+    </column>
+    <column id="617" parent="562" name="created_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+      <StoredType>TIMESTAMP|0s</StoredType>
+    </column>
+    <index id="618" parent="562" name="sqlite_autoindex_users_1">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <index id="600" parent="560" name="sqlite_autoindex_users_2">
+    <index id="619" parent="562" name="sqlite_autoindex_users_2">
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="601" parent="560">
+    <key id="620" parent="562">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="602" parent="560">
+    <key id="621" parent="562">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
     </key>
-    <key id="603" parent="560">
+    <key id="622" parent="562">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_users_2</UnderlyingIndexName>
     </key>
