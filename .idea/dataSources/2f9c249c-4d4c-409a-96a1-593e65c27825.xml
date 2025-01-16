@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="Spielekumpel-DB.sqlite">
+<dataSource name="Spielekumpel-DB">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.53">
     <root id="1">
       <ServerVersion>3.45.1</ServerVersion>
@@ -499,7 +499,7 @@
     </routine>
     <schema id="191" parent="1" name="main">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2025-01-14.22:26:34</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-01-16.00:36:02</LastIntrospectionLocalTimestamp>
     </schema>
     <argument id="192" parent="16">
       <ArgumentDirection>R</ArgumentDirection>
@@ -1829,8 +1829,9 @@ to_user_id</ColNames>
       <Position>2</Position>
     </column>
     <column id="610" parent="561" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <Position>1</Position>
-      <StoredType>INT AUTO_INCREMENT|0s</StoredType>
+      <StoredType>INTEGER|0s</StoredType>
     </column>
     <column id="611" parent="561" name="username">
       <NotNull>1</NotNull>
@@ -1848,7 +1849,7 @@ to_user_id</ColNames>
       <StoredType>VARCHAR(100)|0s</StoredType>
     </column>
     <column id="614" parent="561" name="profile_picture">
-      <DefaultExpression>&apos;{{ url_for(&apos;&apos;static&apos;&apos;, filename=&apos;&apos;assets/profile_picture/pp001.png&apos;&apos;) }}&apos;</DefaultExpression>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
       <Position>5</Position>
       <StoredType>VARCHAR(255)|0s</StoredType>
     </column>
@@ -1858,14 +1859,26 @@ to_user_id</ColNames>
       <StoredType>TIMESTAMP|0s</StoredType>
     </column>
     <index id="616" parent="561" name="sqlite_autoindex_users_1">
-      <ColNames>id</ColNames>
+      <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="617" parent="561">
+    <index id="617" parent="561" name="sqlite_autoindex_users_2">
+      <ColNames>email</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+    </index>
+    <key id="618" parent="561">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="619" parent="561">
+      <ColNames>username</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_users_1</UnderlyingIndexName>
+    </key>
+    <key id="620" parent="561">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_users_2</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

@@ -1,10 +1,10 @@
 -- Create users
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    profile_picture VARCHAR(255) DEFAULT '{{ url_for(''static'', filename=''assets/profile_picture/pp001.png'') }}',
+    email VARCHAR(100) NOT NULL UNIQUE,
+    profile_picture VARCHAR(255) DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

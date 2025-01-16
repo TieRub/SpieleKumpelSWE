@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4638498a-30f8-438c-a08d-c73f93754186" name="Changes" comment="test" />
+    <list default="true" id="e5fb6b6e-6f69-4528-a20e-31ec506fe362" name="Changes" comment="Version 0.3.2">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3377299-0259-4791-8caf-f021af9b25d4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3377299-0259-4791-8caf-f021af9b25d4/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eeb63127-a3b5-4b94-9f6d-9e882c5cb4ff.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eeb63127-a3b5-4b94-9f6d-9e882c5cb4ff/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spielekumpel-DB.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/Spielekumpel-DB.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/user/users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/user/users.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/event/events_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/event/events_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/event/events_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/event/events_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/event/events_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/event/events_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/logging/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/logging/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/user/friends_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/user/friends_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/user/friends_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/user/friends_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/user/profile_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/user/profile_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/pages/user/profile_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/pages/user/profile_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/register.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/register.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,30 +84,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Flask server.Flask.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.logging.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Flask server.Flask.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.logging.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;test__for__sbeve&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb",
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;,
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/html/assets" />
@@ -117,42 +138,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="SpieleKumpelSWE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="SpieleKumpelSWE" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
@@ -174,7 +159,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4638498a-30f8-438c-a08d-c73f93754186" name="Changes" comment="" />
+      <changelist id="e5fb6b6e-6f69-4528-a20e-31ec506fe362" name="Changes" comment="Version 0.3.2" />
       <created>1734610582212</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -187,6 +172,8 @@
       <workItem from="1736499331323" duration="9598000" />
       <workItem from="1736779446515" duration="1707000" />
       <workItem from="1736865575897" duration="7163000" />
+      <workItem from="1736898146339" duration="157000" />
+      <workItem from="1736984789315" duration="2989000" />
     </task>
     <task id="LOCAL-00001" summary="A little late">
       <option name="closed" value="true" />
@@ -324,6 +311,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SpieleKumpelSWE$Flask.coverage" NAME="Flask Coverage Results" MODIFIED="1736501971172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SpieleKumpelSWE$logging.coverage" NAME="logging Coverage Results" MODIFIED="1736870548085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/SpieleKumpelSWE$app.coverage" NAME="app Coverage Results" MODIFIED="1736870556372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SpieleKumpelSWE$app.coverage" NAME="app Coverage Results" MODIFIED="1736987821171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
