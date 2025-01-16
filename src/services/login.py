@@ -15,11 +15,10 @@ def validate_login(username, password):
     conn = sqlite3.connect('Spielekumpel-DB.sqlite')
     cursor = conn.cursor()
 
-    # Fetch the user ID and hashed password for the given username
     cursor.execute("SELECT id, password FROM users WHERE username = ?", (username,))
     user = cursor.fetchone()
     conn.close()
 
     if user and check_password_hash(user[1], password):
-        return user[0]  # Return the user ID if the password matches
+        return user[0]
     return None

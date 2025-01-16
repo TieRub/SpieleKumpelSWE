@@ -2,9 +2,12 @@
 |--     /src
 |--     |-- /database
 |--     |   |-- /event
+|--     |   |   |-- event_participants.sql
+|--     |   |   |-- events.sql
 |--     |   |-- /user
 |--     |   |   |-- friend_request.sql
 |--     |   |   |-- friends_current.sql
+|--     |   |   |-- profile.sql
 |--     |   |   |-- users.sql
 |--     |-- /html
 |--     |   |-- /assets

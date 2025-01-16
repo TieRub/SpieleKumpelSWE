@@ -16,26 +16,21 @@ def register_user(username, password, email):
     conn = sqlite3.connect('Spielekumpel-DB.sqlite')
     cursor = conn.cursor()
 
-    # Check if the username already exists
     cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?", (username,))
     if cursor.fetchone()[0] > 0:
         conn.close()
-        return False  # Username already exists
+        return False
 
-    # Hash the password
     hashed_password = generate_password_hash(password)
 
-    # Insert the new user into the database
     cursor.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)",
                    (username, hashed_password, email))
     conn.commit()
 
-    # Get the id of the newly inserted user
     user_id = cursor.lastrowid
 
-    # Insert a profile for the new user (with the display_name defaulting to username)
     cursor.execute("INSERT INTO profiles (user_id, display_name) VALUES (?, ?)",
-                   (user_id, username))  # Default display_name is the username
+                   (user_id, username))
 
     conn.commit()
     conn.close()
