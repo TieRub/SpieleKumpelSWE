@@ -6,4 +6,5 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 DROP TABLE users;
