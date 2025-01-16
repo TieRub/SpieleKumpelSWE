@@ -1,24 +1,17 @@
-import sqlite3
-from werkzeug.security import check_password_hash
+from flask import request, flash, redirect, url_for, session, render_template
+from src.services.database import validate_login
 
-def validate_login(username, password):
-    """
-    Validate the username and password provided during login.
-
-    Args:
-        username (str): The username provided by the user.
-        password (str): The plaintext password provided by the user.
-
-    Returns:
-        int or None: The user ID if validation is successful, None otherwise.
-    """
-    conn = sqlite3.connect('Spielekumpel-DB.sqlite')
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT id, password FROM users WHERE username = ?", (username,))
-    user = cursor.fetchone()
-    conn.close()
-
-    if user and check_password_hash(user[1], password):
-        return user[0]
-    return None
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        user_id = validate_login(username, password)
+        if user_id:
+            session['user_logged_in'] = True
+            session['user_id'] = user_id
+            session['username'] = username
+            flash(f'Welcome back, {username}!', 'success')
+            return redirect(url_for('index'))
+        else:
+            flash('Invalid username or password', 'error')
+    return render_template('logging/login.html')

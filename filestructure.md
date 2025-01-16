@@ -37,8 +37,10 @@
 |--     |   |   |-- style-global.css
 |--     |-- /services
 |--     |   |-- __init__.py
+|--     |   |-- database.py
 |--     |   |-- login.py
 |--     |   |-- logout.py
+|--     |   |-- profile.py
 |--     |   |-- register.py
 |--     /venv
 |--     app.py
