@@ -2,11 +2,9 @@
 |--     /src
 |--     |-- /database
 |--     |   |-- /event
-|--     |   |   |-- events.sql
 |--     |   |-- /user
 |--     |   |   |-- friend_request.sql
-|--     |   |   |-- friends.sql
-|--     |   |   |-- no_friends.sql
+|--     |   |   |-- friends_current.sql
 |--     |   |   |-- users.sql
 |--     |-- /html
 |--     |   |-- /assets

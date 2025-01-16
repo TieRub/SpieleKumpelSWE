@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash
 
 def register_user(username, password, email):
     """
-    Register a new user in the database.
+    Register a new user in the database and automatically create a profile.
 
     Args:
         username (str): The desired username.
@@ -28,6 +28,15 @@ def register_user(username, password, email):
     # Insert the new user into the database
     cursor.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)",
                    (username, hashed_password, email))
+    conn.commit()
+
+    # Get the id of the newly inserted user
+    user_id = cursor.lastrowid
+
+    # Insert a profile for the new user (with the display_name defaulting to username)
+    cursor.execute("INSERT INTO profiles (user_id, display_name) VALUES (?, ?)",
+                   (user_id, username))  # Default display_name is the username
+
     conn.commit()
     conn.close()
     return True
