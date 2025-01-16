@@ -45,13 +45,13 @@ def register_user(username, password, email):
 
 def get_user_profile(user_id):
     """
-    Fetch the user's profile details.
+    Fetch the user's profile details including the profile picture.
     """
     conn = get_db_connection()
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT u.username, u.email, p.about_me 
+        SELECT u.username, u.email, p.about_me, p.profile_picture
         FROM users u
         LEFT JOIN profiles p ON u.id = p.user_id
         WHERE u.id = ?

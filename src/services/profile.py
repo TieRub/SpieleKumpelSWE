@@ -10,9 +10,13 @@ def profile_view():
     user_data = get_user_profile(user_id)
 
     if user_data:
-        username, email, about_me = user_data
+        username, email, about_me, profile_picture = user_data
     else:
         flash('User not found.', 'error')
         return redirect(url_for('index'))
 
-    return render_template('user/profile_view.html', username=username, email=email, about_me=about_me)
+    return render_template('user/profile_view.html',
+                           username=username,
+                           email=email,
+                           about_me=about_me,
+                           profile_picture=profile_picture)

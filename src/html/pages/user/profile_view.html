@@ -8,7 +8,7 @@
 
     <div class="profile-content">
         <!-- Profile Image -->
-        <img class="profile-image" src="/src/html/assets/Screenshot 2024-12-04 170533.png" alt="Profile Picture">
+        <img class="profile-image" src="{{ url_for('static', filename=profile_picture) }}" alt="Profile Picture" style="width: 200px; height: 200px;">
 
         <!-- User Details -->
         <div class="profile-details">

@@ -3,7 +3,7 @@ CREATE TABLE profiles (
     user_id INTEGER NOT NULL,
     display_name VARCHAR(50),
     about_me TEXT,
-    profile_picture TEXT DEFAULT '',
+    profile_picture TEXT DEFAULT 'assets/profile_picture/pp001.png',
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
