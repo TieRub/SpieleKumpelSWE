@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_session import Session  # Importiere Session von flask_session
 from src.kumpelSuche import get_user
-from login import login
+from src.login import login
 from src.logout import logout
 from src.register import register
 
