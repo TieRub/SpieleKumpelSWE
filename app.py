@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_session import Session  # Importiere Session von flask_session
+from src.database import get_user_profile
 from src.kumpelSuche import get_user
 from src.login import login
 from src.logout import logout
@@ -13,17 +14,18 @@ app.config['SESSION_TYPE'] = 'filesystem'  # Speicherung der Sitzung auf dem Dat
 Session(app)  # Initialisiere Flask-Session
 
 
-@app.route('/ediitProfile')
+@app.route('/editProfile')
 def editProfile():
 
     return render_template('pages/editProfile.html')
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
-    #if 'user_logged_in' not in session:
-    #    return redirect(url_for('logging'))
-    user_data = get_user(session['user_id'])
-    return render_template('profile.html', username=user_data[0], email=user_data[1])
+    if 'user_logged_in' not in session:
+        return redirect(url_for('login'))
+    user_id = session['user_id']
+    user_data = get_user_profile(user_id)
+    return render_template('pages/profile.html', username=user_data[0], email=user_data[1])
 
 
 @app.route('/meinBereich', methods=['GET', 'POST'])
