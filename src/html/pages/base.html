@@ -3,17 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Default Title{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='pages/styles-pages.css') }}">
+    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    {% include '../navbar/navbar.html' %}
+        <header>
+            <nav>
+                <ul class="non-collapsible-links">
+                    <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/home.png') }}" alt="Home"></a></li>
+                    <li><a href="/events_view"><img src="{{ url_for('static', filename='assets/icons/site/dashboard.png') }}" alt="Events"></a></li>
+                    <li><a href="/profile_view"><img src="{{ url_for('static', filename='assets/icons/site/user.png') }}" alt="Profile"></a></li>
+                </ul>
 
-    <!-- Page Content -->
-    {% block content %}{% endblock %}
+                <div class="burger-menu" id="burgerMenu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
 
-    <script src="{{ url_for('static', filename='navbar/script-navbar.js') }}"></script>
-    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+                <ul class="nav-links" id="navLinks">
+                    {% if 'user_logged_in' in session %}
+                        <li>Welcome, {{ session['username'] }}</li>
+                        <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    {% endif %}
+                    <li><a href="/friends_view">Kumpels</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul>
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}
+                <!-- pages -->
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>&copy; Spielekumpel by (insert your names here)</p>
+        </footer>
 </body>
 </html>

@@ -1,6 +1,9 @@
-from flask import Flask, session, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_session import Session  # Importiere Session von flask_session
 from src.kumpelSuche import get_user
+from src.login import login
+from src.logout import logout
+from src.register import register
 
 app = Flask(__name__, template_folder='src/html', static_folder='src/html')
 
@@ -30,7 +33,7 @@ def meinBereich():
     return render_template('pages/meinBereich.html')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/kumpelSuche', methods=['GET', 'POST'])
 def kumpelSuche():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -50,11 +53,9 @@ def create():
     return render_template('pages/create.html')
 
 
-@app.route('/index')
+@app.route('/')
 def index():
     return render_template('pages/index.html')
-
-
 
 @app.route('/kumpel_verwaltung')
 def kumpel_verwaltung():
@@ -68,29 +69,10 @@ def kumpel_verwaltung():
 
     return render_template('pages/kumpels.html')
 
-
-@app.route('/logging', methods=['GET', 'POST'])
-def logging():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        # Beispielhafte Prüfung der Anmeldedaten
-        if username == 'admin' and password == 'password':  # Beispielhafte Prüfung
-            session['user_logged_in'] = True
-            return redirect(url_for('profile'))  # Weiterleitung zur Profilseite
-
-        # Wenn Login fehlschlägt
-        return render_template('pages/logging.html', error='Invalid username or password')
-
-    return render_template('pages/logging.html')
-
-
-@app.route('/logout')
-def logout():
-    session.pop('user_logged_in', None)  # Benutzer aus der Sitzung entfernen
-    return redirect(url_for('logging'))  # Zur Login-Seite weiterleiten
-
+    # Logging Routes
+    app.add_url_rule('/login', view_func=login, methods=['GET', 'POST'])
+    app.add_url_rule('/register', view_func=register, methods=['GET', 'POST'])
+    app.add_url_rule('/logout', view_func=logout)
 
 if __name__ == '__main__':
     app.run(debug=True)

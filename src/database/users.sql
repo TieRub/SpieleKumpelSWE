@@ -1,16 +1,9 @@
--- Users Table
-CREATE TABLE users
-(
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    email           TEXT    NOT NULL UNIQUE,
-    username        TEXT    NOT NULL UNIQUE,
-    password        TEXT    NOT NULL,
-    profile_picture TEXT DEFAULT '/html/assets/default-profile.png'
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
-INSERT INTO users (email, username, password, profile_picture)
-VALUES ('Steven@example.com', 'TieRub', 'password123', '/html/assets/tierub.png'),
-       ('Marcel@example.com', 'Matzel', 'password456', '/html/assets/matzel.png'),
-       ('Victoria@example.com', 'Marshila', 'password789', '/html/assets/marshila.png'),
-       ('kenneth@example.com', 'Helistormer', 'password789', '/html/assets/helistormer.png');
+DROP TABLE users;
