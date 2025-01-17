@@ -20,16 +20,16 @@ def editProfile():
 
 @app.route('/profile')
 def profile():
-    if 'user_logged_in' not in session:
-        return redirect(url_for('logging'))
+    #if 'user_logged_in' not in session:
+    #    return redirect(url_for('logging'))
     user_data = get_user(session['user_id'])
     return render_template('profile.html', username=user_data[0], email=user_data[1])
 
 
 @app.route('/meinBereich', methods=['GET', 'POST'])
 def meinBereich():
-    if 'user_logged_in' not in session:
-        return redirect(url_for('logging'))
+    #if 'user_logged_in' not in session:
+    #    return redirect(url_for('logging'))
     return render_template('pages/meinBereich.html')
 
 
@@ -59,8 +59,8 @@ def index():
 
 @app.route('/kumpel_verwaltung')
 def kumpel_verwaltung():
-    if 'user_logged_in' not in session:
-        return redirect(url_for('logging'))
+    #if 'user_logged_in' not in session:
+    #    return redirect(url_for('logging'))
     if request.method == 'POST':
 
         to_user = request.form.get('to_user_id')  # Korrekt aus dem Formular auslesen
@@ -70,9 +70,9 @@ def kumpel_verwaltung():
     return render_template('pages/kumpels.html')
 
     # Logging Routes
-    app.add_url_rule('/login', view_func=login, methods=['GET', 'POST'])
-    app.add_url_rule('/register', view_func=register, methods=['GET', 'POST'])
-    app.add_url_rule('/logout', view_func=logout)
+app.add_url_rule('/login', view_func=login, methods=['GET', 'POST'])
+app.add_url_rule('/register', view_func=register, methods=['GET', 'POST'])
+app.add_url_rule('/logout', view_func=logout)
 
 if __name__ == '__main__':
     app.run(debug=True)
