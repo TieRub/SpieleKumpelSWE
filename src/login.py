@@ -1,5 +1,5 @@
 from flask import request, flash, redirect, url_for, session, render_template
-from database import validate_login
+from src.database import validate_login
 
 def login():
     if request.method == 'POST':
@@ -14,4 +14,4 @@ def login():
             return redirect(url_for('index'))
         else:
             flash('Invalid username or password', 'error')
-    return render_template('logging/login.html')
+    return render_template('pages/logging/login.html')

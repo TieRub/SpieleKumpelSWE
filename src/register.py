@@ -1,5 +1,5 @@
 from flask import request, flash, redirect, url_for, render_template
-from database import register_user
+from src.database import register_user
 
 def register():
     if request.method == 'POST':
@@ -11,4 +11,4 @@ def register():
         else:
             flash('Username already exists, please choose a different one', 'error')
             return redirect(url_for('register'))
-    return render_template('logging/register.html')
+    return render_template('pages/logging/register.html')
