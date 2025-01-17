@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Default Title{% endblock %}</title>
-    <script src="{{ url_for('static', filename='pages/logging/script-golbal.js') }}"></script>
+    <script src="{{ url_for('static', filename='pages/logging/script-global.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='pages/logging/style-global.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesM.css') }}">
+    <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+
+    <link href="https://fonts.googleapis.com/" rel="preconnect">
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
 </head>
 <body>
         <header>
             <nav>
                 <ul class="non-collapsible-links">
                     <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/home.png') }}" alt="Home"></a></li>
-                    <li><a href="/events_view"><img src="{{ url_for('static', filename='assets/icons/site/dashboard.png') }}" alt="Events"></a></li>
-                    <li><a href="/profile_view"><img src="{{ url_for('static', filename='assets/icons/site/user.png') }}" alt="Profile"></a></li>
+                    <li><a href="/meinBereich"><img src="{{ url_for('static', filename='assets/icons/site/dashboard.png') }}" alt="Events"></a></li>
+                    <li><a href="/profile"><img src="{{ url_for('static', filename='assets/icons/site/user.png') }}" alt="Profile"></a></li>
                 </ul>
 
                 <div class="burger-menu" id="burgerMenu">

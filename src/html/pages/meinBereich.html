@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesM.css') }}">
-    <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+{% extends 'pages/base.html' %}
 
-
-    <link href="https://fonts.googleapis.com/" rel="preconnect">
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-</head>
-<body>
+{% block content %}
 <div class="all">
     <div class="title">
         <u>Mein Bereich</u>
@@ -57,8 +46,4 @@
         <button>Event Erstellen</button>
     </a>
 </div>
-
-
-<script src="script.js"></script>
-</body>
-</html>
+{% endblock %}
