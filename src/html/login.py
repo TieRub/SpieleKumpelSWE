@@ -1,5 +1,5 @@
 from flask import request, flash, redirect, url_for, session, render_template
-from src.services.database import validate_login
+from database import validate_login
 
 def login():
     if request.method == 'POST':

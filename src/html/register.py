@@ -1,5 +1,5 @@
 from flask import request, flash, redirect, url_for, render_template
-from src.database import register_user
+from database import register_user
 
 def register():
     if request.method == 'POST':
