@@ -1,5 +1,4 @@
 import sqlite3
-from datetime import datetime
 from flask import Flask, render_template, session, redirect, url_for, request
 
 app = Flask(__name__)
@@ -13,14 +12,20 @@ def get_db():
 
 
 @app.route('/meinBereich')
-def get_event():
+def get_my_event():
     c = get_db()
-    suche = c.execute("SELECT LIST(name, aktivitaet, max_mitglieder, description, datum, aktuelle_anzahl) FROM Events")
+    current = session.get('user_id')
+    suche = c.execute("SELECT name, aktivitaet, max_mitglieder, description, datum, aktuelle_anzahl FROM Events WHERE creator_id = ?", (current,))
     result = suche.fetchall()
     return render_template('pages/meinBereich.html', events=result)
 
 
-
+@app.route('/index')
+def get_event():
+    c = get_db()
+    suche = c.execute("SELECT name, aktivitaet, max_mitglieder, description, datum, aktuelle_anzahl FROM Events")
+    result = suche.fetchall()
+    return render_template('pages/index.html', events=result)
 
 
 #create
