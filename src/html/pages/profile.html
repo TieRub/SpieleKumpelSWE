@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head id="i3mk" data-gjs-type="head">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com" rel="preconnect" data-silex-gstatic="">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="" data-silex-gstatic="">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesK.css') }}">
-    <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
+{% extends 'pages/base.html' %}
 
-</head>
-<body class="">
+{% block content %}
 <div data-gjs-highlightable="true" id="i7yo" data-gjs-type="wrapper" class="" draggable="true">
     <div data-gjs-highlightable="true" id="iu8uq" data-gjs-type="container" draggable="true" class="">
         <div data-gjs-highlightable="true" id="ihjng" data-gjs-type="text" draggable="true" class=""
@@ -72,5 +64,4 @@
     </div>
 
 </div>
-</body>
-</html>
+{% endblock %}
