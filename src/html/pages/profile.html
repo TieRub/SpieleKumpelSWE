@@ -1,6 +1,8 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
+
+
 <div data-gjs-highlightable="true" id="i7yo" data-gjs-type="wrapper" class="" draggable="true">
     <div data-gjs-highlightable="true" id="iu8uq" data-gjs-type="container" draggable="true" class="">
         <div data-gjs-highlightable="true" id="ihjng" data-gjs-type="text" draggable="true" class=""
@@ -8,22 +10,30 @@
                                                                                                data-gjs-type="text"
                                                                                                draggable="true"
                                                                                                class="">Profil</u></b><br
-                id="i8yz9" data-gjs-type="default" draggable="true"></div>
-        <img id="iajng" data-gjs-type="image" draggable="true"
-             src="/src/html/assets/profile.png">
+                id="i8yz9" data-gjs-type="default" draggable="true">
+        </div>
+        <div class=img>
+            <img src="{{ url_for('static', filename='assets/pp002.png') }}" alt="bb" width="250px">
+        </div>
+
+
         <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="layout-box">
             <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
+
+
                 <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">
                     Username:
                 </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1"> <td>{{ username }}</td>
+                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1">
+                    <td>{{ username }}</td>
 
                 </div>
             </div>
             <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
                 <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">E-Mail:
                 </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1"> <td>{{ email }}</td>
+                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-1">
+                    <td>{{ email }}</td>
 
                 </div>
             </div>
@@ -47,7 +57,7 @@
                 </div>
             </div>
         </div>
-        <div class="fabs" role="group" aria-label="Floating action buttons">
+        <div class=floating>
             <a href="{{ url_for('editProfile') }}">
                 <button data-icon="heart" class="fab mini" title="Like action" aria-label="Like action">
                     <svg aria-hidden="true" width="48" height="48" viewBox="0 0 16 16">

@@ -38,12 +38,14 @@
             {% endfor %}
         </table>
     </div>
+    <div class=floating>
+            <a href="{{ url_for('create') }}">
+                <button data-icon="heart" class="fab mini" title="Like action" aria-label="Like action">
+                      <img src="{{ url_for('static', filename='assets/add.png') }}" alt="add" width="20px">
+                </button>
+            </a>
+        </div>
 
 </div>
 
-<div class="floating" id=" footer-placeholder">
-    <a href="{{ url_for('create') }}">
-        <button>Event Erstellen</button>
-    </a>
-</div>
 {% endblock %}

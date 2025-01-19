@@ -8,7 +8,7 @@
 /* Body styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color:#1f6f78;
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
@@ -112,7 +112,7 @@ main {
     max-width: 1200px;
     margin: 60px auto 80px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #93e4c1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex-grow: 1;
 }
@@ -128,11 +128,14 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color:#1f6f78;
+
 }
 
 form label {
     margin-bottom: 5px;
     font-size: 1.1rem;
+
 }
 
 form input {
@@ -157,7 +160,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: #A291FF;
 }
 
 /* Responsive styles */
@@ -182,4 +185,8 @@ form button:hover {
     .nav-links.active {
         display: flex;
     }
+
+
+
+
 }

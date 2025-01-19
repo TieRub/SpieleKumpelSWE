@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumpel Verwaltung</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesV.css') }}">
-    <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
-</head>
-<body>
+{% extends 'pages/base.html' %}
+
+{% block content %}
     <h2>Kumpel Verwaltung</h2>
 
     <!-- Bestehende Kumpels -->
@@ -73,5 +65,4 @@
     <!-- Footer with External Script -->
     <div id="footer-placeholder"></div>
     <script defer src="{{ url_for('static', filename='/navbar/script.js') }}"></script>
-</body>
-</html>
+{% endblock %}

@@ -16,9 +16,9 @@
         <header>
             <nav>
                 <ul class="non-collapsible-links">
-                    <li><a href="/"><img src="{{ url_for('static', filename='assets/icons/site/home.png') }}" alt="Home"></a></li>
-                    <li><a href="/meinBereich"><img src="{{ url_for('static', filename='assets/icons/site/dashboard.png') }}" alt="Events"></a></li>
-                    <li><a href="/profile"><img src="{{ url_for('static', filename='assets/icons/site/user.png') }}" alt="Profile"></a></li>
+                    <li><a href="/"><img src="{{ url_for('static', filename='assets/trending.png') }}" alt="Home"></a></li>
+                    <li><a href="/meinBereich"><img src="{{ url_for('static', filename='assets/feed.png') }}" alt="Events"></a></li>
+                    <li><a href="/profile"><img src="{{ url_for('static', filename='assets/profile.png') }}" alt="Profile"></a></li>
                 </ul>
 
                 <div class="burger-menu" id="burgerMenu">
@@ -53,11 +53,12 @@
 
             {% block content %}
                 <!-- pages -->
+
             {% endblock %}
         </main>
 
         <footer>
-            <p>&copy; Spielekumpel by (insert your names here)</p>
+            <p>&copy; Spielekumpel by Steven, Marcel, Kenneth und Victoria</p>
         </footer>
 </body>
 </html>

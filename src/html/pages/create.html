@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'pages/base.html' %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/styles-pages.css') }}">
-    <script defer src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
-
-    <title>Create your Event</title>
-</head>
-<body>
-<h1>Create your Event!</h1>
+{% block content %}
 <h2>Wir freuen uns, dass du ein Event planen möchtest!</h2>
 <p>Die felder mit * müssen ausgefüllt werden.</p>
-
-
-
-
-
-
 
 <div class="Daten_eingeben">
     <div class="label">
@@ -58,9 +41,4 @@
         </a>
     </div>
 
-<div id="footer-placeholder"></div>
-
-<script src="../../script.js"></script>
-
-</body>
-</html>
+{% endblock %}

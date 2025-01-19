@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumpel Suche</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar/styles-navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='pages/stylesV.css') }}">
-    <script src="{{ url_for('static', filename='pages/script-pages.js') }}"></script>
-</head>
-<body>
+{% extends 'pages/base.html' %}
+
+{% block content %}
 <a href="{{ url_for('profile') }}">Profil</a>
 <h2>Kumpels Suchen</h2>
 
@@ -51,9 +43,4 @@
 {% else %}
 <p>Keine Ergebnisse gefunden.</p>
 {% endif %}
-
-<!-- Footer -->
-<div id="footer-placeholder"></div>
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
+{% endblock %}

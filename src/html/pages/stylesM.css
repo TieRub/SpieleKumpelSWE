@@ -4,18 +4,31 @@ body {
     text-align: center;
 }
 
-.floating {
-    float: right;
-    position: sticky;
-    z-index: 1;
-    background-color: #118a7e;
-    color: white;
-    border: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 10px;
+
+.img{
+
+    margin: 10px;
+    padding: 10px;
 
 }
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+form button:hover {
+    background-color: #A291FF;
+}
+
+
 
 .all{
     background-color: #1f6f78;
@@ -26,3 +39,125 @@ body {
     border-bottom-right-radius: 10%;
     margin: 10px;
 }
+
+
+
+.bestehendeKumpels {
+    background-color: #1f6f78;
+    padding: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 10px;
+
+
+}
+
+.kumpelAnfragen {
+    background-color: #118a7e;
+    padding: 10px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    margin: 10px;
+
+}
+
+
+.fabs {
+    /* light button and button hover */
+    --_light-bg: pink;
+    --_light-bg-hover: pink;
+
+    /* dark button and button hover */
+    --_dark-bg: pink;
+    --_dark-bg-hover: pink;
+
+    /* adaptive variables set to light by default */
+    --_bg: var(--_light-bg);
+
+    /* static icon colors set to the adaptive foreground variable */
+    --_light-fg: white;
+    --_dark-fg: black;
+    --_fg: var(--_light-fg);
+    --_viewport-margin: 2.5vmin;
+
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    place-items: center;
+    gap: var(--_viewport-margin);
+
+    inset-block: auto var(--_viewport-margin);
+    inset-inline: auto var(--_viewport-margin);
+
+    /* use the adaptive properties on some styles */
+    background: var(--_bg);
+    color: var(--_fg);
+
+    &:is(:active, :hover, :focus-visible) {
+        --_bg: var(--_light-bg-hover);
+
+        @media (prefers-color-scheme: dark) {
+            --_bg: var(--_dark-bg-hover);
+        }
+    }
+
+    /* if users prefers dark, set adaptive props to dark */
+    @media (prefers-color-scheme: dark) {
+        --_bg: var(--_dark-bg);
+        --_fg: var(--_dark-fg);
+    }
+}
+
+.layout-box {
+    min-height: 100px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 0px 0px;
+    padding: 20px;
+    border: 3px solid #1f6f78;
+}
+
+.container-box {
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    align-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-type-2 {
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: wavy #000000 1px;
+    font-weight: 700;
+    color: #1f6f78;
+}
+.text-type {
+    padding: 10px;
+    font-size: 14px;
+    background: #FFFFFF;
+}
+.text-type-1 {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.spacer {
+    padding: 10px;
+    min-height: 200px;
+    min-width: 100%;
+}
+
+
+

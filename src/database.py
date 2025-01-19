@@ -60,3 +60,5 @@ def get_user_profile(user_id):
     conn.close()
 
     return user_data
+
+
