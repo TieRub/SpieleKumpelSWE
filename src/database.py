@@ -1,4 +1,6 @@
 import sqlite3
+from asyncio import events
+
 from flask import session
 from django.dispatch import receiver
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -139,19 +141,17 @@ def getEvent():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT u.username, p.profile_picture
-        FROM users u
-        LEFT JOIN profiles p ON u.id = p.user_id
-        WHERE u.username = ? ;
-    """, (name,))
-    users = cursor.fetchall()
+        SELECT * FROM events
+    """)
+    events = cursor.fetchall()
     conn.close()
 
-    return users
+    return events
 
 def index():
     conn = get_db_connection()
     cursor = conn.cursor()
+    print(events)
 
 
 

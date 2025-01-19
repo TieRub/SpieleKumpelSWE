@@ -98,10 +98,10 @@ def index():
 
 
 
-# Korrekte Funktionsdefinition, die zwei Parameter akzeptiert
-def kumpel_verwaltung(sender_id, receiver_id):
-    print(f"Sender ID: {sender_id}, Receiver ID: {receiver_id}")
+@app.route('/kumpel_verwaltung', methods=['GET', 'POST'])
+def kumpel_verwaltung():
     # Weitere Logik für Freundschaftsanfragen hinzufügen
+    return render_template('pages/kumpels.html')
 
 
 
