@@ -1,68 +1,63 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
-    <h2>Kumpel Verwaltung</h2>
+<h2>Kumpel Verwaltung</h2>
 
-    <!-- Bestehende Kumpels -->
-    <div class="bestehendeKumpels">
-        <h3>Deine Kumpels</h3>
-        <table>
-            <tr>
-                <th>Benutzername</th>
-                <th>Bild</th>
-            </tr>
-            {% for friend in Friends %}
-            <tr>
-                <td>{{ Friends.username }}</td>
-                <td>
-                    <img src="{{ url_for('static', filename='images/' + Friend.username + '.png') }}"
-                         alt="Profilbild von {{ Friends.username }}"
-                         width="50">
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
+<!-- Bestehende Kumpels -->
+<div class="bestehendeKumpels">
+    <h3>Deine Kumpels:</h3>
+    <table>
+        <tr>
+            <th>Benutzername</th>
+            <th>Bild</th>
+        </tr>
+        {% for friend in friends %}
+        <tr>
+            <td>{{ friend.username }}</td>
+            <td>
+                <img src="{{ url_for('static', filename='images/' + friend.username + '.png') }}"
+                     alt="Profilbild von {{ friend.username }}"
+                     width="50" onerror="this.src='/static/images/default-profile.png';">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 
-    <!-- Erhaltene Freundschaftsanfragen-->
-    <div class="kumpelAnfragen">
-        <h3>Diese Kumpels möchten mit dir befreundet sein</h3>
-        <table>
-            <tr>
-                <th>Benutzername</th>
-                <th>Bild</th>
-                <th>Aktion</th>
-            </tr>
-            {% for request in requests %}
-            <tr>
-                <td>{{ FriendRequest.from_user.username }}</td>
-                <td>
-                    <img src="{{ url_for('static', filename='images/' + FriendRequest.from_user.username + '.png') }}"
-                         alt="Profilbild von {{ FriendRequest.from_user.username }}"
-                         width="50" onerror="this.src='/static/images/default-profile.png';">
-                </td>
-                <td>
-                    <form method="POST" action="{{ url_for('FriendRequest', request_id=request.id) }}">
-                        <button type="submit" name="action" value="accept">Annehmen</button>
-                        <button type="submit" name="action" value="delete">Ablehnen</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
+<!-- Erhaltene Freundschaftsanfragen -->
+<div class="kumpelAnfragen">
+    <h3>Mögliche Kumpels:</h3>
+    <table>
+        <tr>
+            <th>Benutzername</th>
+            <th>Bild</th>
+            <th>Aktion</th>
+        </tr>
+        {% for user in user_data %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>
+                <img src="{{ url_for('static', filename='images/' + user[0] + '.png') }}" alt="Profilbild" width="50px">
+            </td>
+            <td>
+                <form method="POST" action="{{ url_for('kumpelSuche', request_id=pending.id) }}">
+                    <button type="submit" name="action" value="accept">Annehmen</button>
+                    <button type="submit" name="action" value="decline">Ablehnen</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 
-        </table>
-    </div>
+<!-- Suchen Button -->
+<div class="floating">
+    <a href="{{ url_for('kumpelSuche') }}">
+        <button>Suche</button>
+    </a>
+</div>
 
-    <!-- Suchen Button -->
-    <div class="floating">
-        <a href="{{ url_for('kumpelSuche') }}">
-            <button>Suche</button>
-        </a>
-    </div>
-
-    <!-- Footer with External Script -->
-    <div id="footer-placeholder"></div>
-    <script defer src="{{ url_for('static', filename='/navbar/script.js') }}"></script>
+<!-- Footer with External Script -->
+<div id="footer-placeholder"></div>
+<script defer src="{{ url_for('static', filename='navbar/script.js') }}"></script>
 {% endblock %}

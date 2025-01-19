@@ -8,4 +8,3 @@ CREATE TABLE friends_current (
     CONSTRAINT unique_friendship UNIQUE(user_id_1, user_id_2)
 );
 
-DROP TABLE friends_current;

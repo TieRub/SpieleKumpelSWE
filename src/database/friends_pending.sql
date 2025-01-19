@@ -9,4 +9,3 @@ CREATE TABLE friend_pending (
     CONSTRAINT unique_request UNIQUE(sender_id, receiver_id)
 );
 
-DROP TABLE friend_pending;

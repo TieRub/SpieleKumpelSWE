@@ -6,4 +6,3 @@ CREATE TABLE event_participants (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-DROP TABLE event_participants;

@@ -1,1 +1,21 @@
 {% extends 'pages/base.html' %}
+
+
+{% block content %}
+<h2>home</h2>
+    <h3>Events:</h3>
+    <table>
+        {% for event in events %}
+        <tr>
+            <td>{{ friend.username }}</td>
+            <td>
+                <img src="{{ url_for('static', filename='images/' + friend.username + '.png') }}"
+                     alt="Profilbild von {{ friend.username }}"
+                     width="50" onerror="this.src='/static/images/default-profile.png';">
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

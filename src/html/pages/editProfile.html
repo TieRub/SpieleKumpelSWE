@@ -1,56 +1,24 @@
 {% extends 'pages/base.html' %}
 
 {% block content %}
-<div data-gjs-highlightable="true" id="i7yo" data-gjs-type="wrapper" class="" draggable="true">
-    <div data-gjs-highlightable="true" id="iu8uq" data-gjs-type="container" draggable="true" class="">
-        <div data-gjs-highlightable="true" id="ihjng" data-gjs-type="text" draggable="true" class=""
-             contenteditable="false"><b id="ik6k2" data-gjs-type="default" draggable="true"></b>
-            <div class="text-type-2">Profilbild ändern:</div>
-            <input type="file" name="new_picture" accept="image/*">
-        </div>
+<div class="profile-container">
+    <h2>Profile</h2>
+    <img src="{{ url_for('static', filename='assets/pp002.png') }}" alt="Profile Picture" width="250px">
 
-        <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="layout-box">
-            <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">
-                    Benutzername:
-                </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type"
-                     contenteditable="true">{{ username }}
-                </div>
-            </div>
-            <div data-gjs-highlightable="true" data-gjs-type="container" draggable="true" class="container-box">
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type-2">E-Mail:
-                </div>
-                <div data-gjs-highlightable="true" data-gjs-type="text" draggable="true" class="text-type"
-                     contenteditable="true">{{ email }}
-                </div>
-            </div>
-        </div>
-        <div data-gjs-highlightable="true" id="ivm86" data-gjs-type="container" draggable="true" class="layout-box">
-            <div data-gjs-highlightable="true" id="iqqce" data-gjs-type="text" draggable="true" class="">Über Mich:
-            </div>
-            <div data-gjs-highlightable="true" id="ihwh2" data-gjs-type="container" draggable="true" class="">
-                <div data-gjs-highlightable="true" id="iwalb" data-gjs-type="text" draggable="true" class=""
-                     contenteditable="true">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                    eirmod
-                    tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                    et
-                    justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                    dolor
-                    sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                    invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                    duo
-                    dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                    amet.
-                </div>
-            </div>
-        </div>
-    </div>
-    <form action="/profil" method="post">
-        <a href="{{ url_for('profile') }}">
-            <button type="submit">fertig</button>
-        </a>
+    <form action="{{ url_for('editProfile') }}" method="POST">
+        <label for="picture">Profile Picture URL:</label>
+        <input type="picture" id="picture" name="picture" value="{{ user.profile_picture }}" >
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" >
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}" >
+
+        <label for="about">About Me:</label>
+        <textarea id="about" name="about" required>{{ user.about_me }}</textarea>
+
+        <button type="submit">Save</button>
     </form>
-
 </div>
 {% endblock %}
